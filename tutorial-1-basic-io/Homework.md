@@ -89,12 +89,12 @@ For quality of life and ease of debugging, we want you to display the string of 
 
 - When `BTN1` is pressed (short), `". "` is inputted and shown on the TFT screen. **(@1)**
 - When `BTN1` is pressed (medium), `"_ "` is inputted and shown on the TFT screen. **(@1)**
-```c
-// For short BTN1 press:
+```
+- For short BTN1 press:
 .[]
-// For medium BTN1 press:
+- For medium BTN1 press:
 _[]
-// The []s are a visual representation of a white space, in the actual HW, replace '[]' with ' '.
+- The []s are a visual representation of a white space, in the actual HW, replace '[]' with ' '.
 ```
 
 *Notice the 1 white space character after the dot and dash, will only give the point if the input and results are **completely** correct.
@@ -105,11 +105,11 @@ _[]
 Since the intended outputs are only letters, we know that there will only be 4 or less dots or dashes. Therefore we imply a restriction on the input.
 
 - Only a maximum of 4 dots/dashes can be used per character. **(@1)**
-```c
-// If you do 4 short BTN1 presses and 1 medium BTN1 press
-. . . . _ // WRONG
-// Due to the 4 character limitation:
-. . . . // CORRECT
+```
+- If you do 4 short BTN1 presses and 1 medium BTN1 press
+. . . . _ WRONG
+- Due to the 4 character limitation:
+. . . . CORRECT
 ```
 
 The generator will validate the dot/dash sequence every time a new line is inputted or when the complete input is sent for outputting.
@@ -125,25 +125,24 @@ The generator will validate the dot/dash sequence every time a new line is input
   (@0.5 if delete less or more than required, @0 if nothing is deleted)
 
 #### Sample of what would appear on the TFT screen for 2 sets of responses:
-```c
-//Screen before short press of BTN2
+```
+- Screen before short press of BTN2
 . . . .
-//Screen after short press of BTN2
+- Screen after short press of BTN2
 . . . . H
 
-//Screen after more inputs 
+- Screen after more inputs 
 . . . . H
 . _ _ W
 
-//
 ```
 
 #### Sample of invalid inputs:
-```c
-//Screen before short press of BTN2
+```
+- Screen before short press of BTN2
 _ . _ . C
 . _ . _
-//Screen after short press of BTN2
+- Screen after short press of BTN2
 _ . _ . C
 
 ```
@@ -181,16 +180,16 @@ After the input is `sent`, clear everything on screen and display the outputted 
   - @3 if **ONLY** the correct string is displayed on screen
 
 #### Sample of output
-```c
-//Before BTN2(medium)
+```
+- Before BTN2(medium)
 _ _ M
 _ _ _ O
 . _ . R
 . . . S
 . 
-//After BTN2(medium)
+- After BTN2(medium)
 MORSE 
-//Also flashes MORSE in morse code
+- Also flashes MORSE in morse code
 ```
 
 
