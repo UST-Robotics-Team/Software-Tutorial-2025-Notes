@@ -1,7 +1,7 @@
 # Basic STM32 Configuration
 
-> Please be **noted** that we are domostrating how to set up a new
-GPIO **OUTPUT** pins for air cylinder.
+> Please be **noted** that we are demonstrating how to set up a new
+GPIO **OUTPUT** pin.
 
 Throughout your RDC journey, you will not need to configure all pinouts and function modules from scratch due to the many technical considerations involved. We have already provided you with a mostly completed configuration file called "SW Tutorial," which includes commonly used functionalities such as CAN, LED, TFT, and PWM.
 However, you may still need to utilize some GPIO pins, and we cannot predict what and where you will connect to the board. Therefore, we will introduce some basic skills for setting up GPIO pins.
