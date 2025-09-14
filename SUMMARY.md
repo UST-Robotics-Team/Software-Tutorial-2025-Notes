@@ -16,18 +16,16 @@
 ## Tutorial 0
 
 * [09) Array and String](09-array-string.md)
-* [10) Functions](10-functions.md) 
+* [10) Functions](10-functions.md)
 * [11) Structs and Enums](11-struct.md)
 * [12) Multi File Programming](12-multi-file-programming.md)
 * [13) Recursion*](13-recursion.md)
-  * [Self-Tests](13-recursion.md#self-test) 
-
+  * [Self-Tests](13-recursion.md#self-test)
 * Optional Exercises
     * [A1) Preprocessors](a1-preprocessor.md)
     * [A2) Static and Extern](a2-static-extern.md)
     * [A3) Union](a3-union.md)
     * [A4) Pointers](a4-pointers.md)
-
 * Classworks
     * [Classwork 1: Matrix Addition -- Arrays](classwork/classwork-1-matrix-addition.md)
     * [Classwork 2: First Word -- String](classwork/classwork-2-first-word.md)
