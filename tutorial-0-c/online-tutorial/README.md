@@ -13,15 +13,15 @@
 
 Materials to Introduce in this Online Tutorial:
 
-* [08) Array and String](08-array-string.md)
-* [09) Functions](09-functions.md) 
-* [10) Structs and Enums](10-struct.md)
-* [11) Multi File Programming](11-multi-file-programming.md)
+* [09) Array and String](09-array-string.md)
+* [10) Functions](10-functions.md) 
+* [11) Structs and Enums](11-struct.md)
+* [12) Multi File Programming](12-multi-file-programming.md)
 
 The following part is very optional:
 
-* [12) Recursion*](12-recursion.md)
-  * [Self-Tests](12-recursion.md#self-test) 
+* [13) Recursion*](13-recursion.md)
+  * [Self-Tests](13-recursion.md#self-test) 
 
 # Advanced C
 

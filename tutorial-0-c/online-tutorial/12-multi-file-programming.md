@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Previous Page](10-functions.md)
+[Back to Main](README.md) | [Previous Page](11-struct.md)
 
 
 # Multi-file Programming

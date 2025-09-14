@@ -10,13 +10,13 @@ Here is a brief overview of our schedule:
 
 <!-- <figure><img src="images/2024-schedule.png" alt=""><figcaption><p>2024 schedule</p></figcaption></figure> -->
 
-[Homework arrangement](homework-demo-arrangements.md)
+[Homework arrangement](Homework-Arrangements.md)
 
 ### Self Learn Module
-* [Self-learning basic C](self-learn-basic-c/README.md)
+* [Self-learning basic C](tutorial-0-c/self_study/README.md)
 
 ### Online Zoom Tutorials
-* [Tutorial 0: Advanced C](tutorial-0-advanced-c/README.md)
+* [Tutorial 0: Advanced C](tutorial-0-c/online-tutorial/README.md)
 
 ### Embedded Systems
 * [Tutorial 1: Basic IO (GPIO and TFT)](tutorial-1-basic-io/README.md)
@@ -27,4 +27,4 @@ Here is a brief overview of our schedule:
 
 Advanced tutorials will be held later in the next phase and their dates are still TBD. There are also advanced notes for your own reading. Feel free to reach out to any team members if you have any questions about anything related to the tutorials or the team in general.
 
-Please also make sure to join our [Discord](https://discord.gg/PNnQdjzt58) server for more important announcements.
+Please also make sure to join our [Discord](https://discord.gg/C9n55M88c7) server for more important announcements.

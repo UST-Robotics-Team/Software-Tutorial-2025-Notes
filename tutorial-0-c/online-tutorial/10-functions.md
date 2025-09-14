@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Previous Page](08-array-string.md)
+[Back to Main](README.md) | [Previous Page](09-array-string.md)
 
 # Functions
 
@@ -460,4 +460,4 @@ One of such possible answer is the following (note that the solution prints the 
 </details>
 
 
-[Continue to The Next Page](10-struct.md)
+[Continue to The Next Page](11-struct.md)

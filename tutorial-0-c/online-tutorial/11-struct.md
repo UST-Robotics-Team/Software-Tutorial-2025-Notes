@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Previous Page](09-functions.md)
+[Back to Main](README.md) | [Previous Page](10-functions.md)
 
 # Struct
 
@@ -336,5 +336,5 @@ The stack object looks like the following:
 </details>
 
 
-[Continue to The Next Page](11-multi-file-programming.md)
+[Continue to The Next Page](12-multi-file-programming.md)
 

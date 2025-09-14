@@ -174,4 +174,4 @@ while (1) {
 
 Now test your PWM with a servo motor!
 
-[Servo Motor](PWM_Servo.md#connections)
+[Servo Motor](02-servo_motor.md#connections)

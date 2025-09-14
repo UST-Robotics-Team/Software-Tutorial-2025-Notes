@@ -546,4 +546,4 @@ int main(){
 
 </details>
 
-[Continue to The Next Page](09-functions.md)
+[Continue to The Next Page](10-functions.md)
