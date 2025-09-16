@@ -13,7 +13,7 @@ Servo motor is a special type of motor that can only rotate from -90 degree to 9
 To control a servo motor to move to a specific angle, we need to use send a PWM signal to the servo (and of course we also need to give it enough power to move).
 So first, we will learn about PWM and come back later.
 
-[PWM](01-pwm.md#pwm)
+[PWM](01-pwm.md)
 
 ---
 
