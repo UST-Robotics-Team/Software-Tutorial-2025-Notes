@@ -31,6 +31,8 @@ e.g. PWM duty cycle = 50% (0.5), dir = CW (Clockwise)
 ## Optional
 >some small potato yapping
 
+>the following part will be mainly conceptual, we dont expect you guys to need to implement any of this stuff in RDC or even in the team.
+
 The following parts may be less useful in general (hence optional) since we have never actually used this motor in the team before, but if you really want to use this motor or learn a bit more, feel free to check it out.
 
 Also these are going to be purely conceptional. We dont expect any implementation.
@@ -46,13 +48,15 @@ Velocity could be estimated with some additional calculations as well.
 According to some online vendor (since we have no datasheet : ) ), the SAMI motor is embedded with a HAL encoder which is supposed to generate 9 pulses per revolution. ~~but it gives weird feedbacks from our testing and we have no idea what its actual gear ratio is~~
 
 #### Reading feedback
-From the description, you may want to do polling/interrupt on the encoder pin to capture the encoder feedback, but there's actually a more efficient way of doing this with TIMers (actually still interrupts but implemented).
+From the description, you may want to do polling/interrupt on the encoder pin to capture the encoder feedback, but there's actually a more efficient way of doing this with TIMers (actually still interrupts but implemented for you).
 
 #### Back to TIMers
 > Most useful part in this note imo.
 
 In the PWM section, we used PSC, ARR, CNT & CCR of the TIMer to generate the PWM.\
 Here we will be using mainly the counter CNT.
+
+By scaling the count and change in count according to the settings of the motor, we could obtain a somewhat accurate reading of the position and velocity of the encoder with some extra steps.
 
 The benefit of using TIMer is that it does the counting for you so it makes things more error prone and performance would be optimized for you, making it more efficient.
 
@@ -61,5 +65,9 @@ The benefit of using TIMer is that it does the counting for you so it makes thin
 
 ## Conclusion
 
-Don't use this motor.
-If you see this motor, kill it.
+~~Don't use this motor.~~
+This motor is quite different form the ones we usually use which are controlled by current.
+
+There is (likely) a control board embeded inside the motor handling control related matters, which would be really important in the development of robotics.
+
+In short, we hope that you would dig more on control methods such as **PID**, and understand the importance of reading references datasheets for developing drivers/embeded systems.
