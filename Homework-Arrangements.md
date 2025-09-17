@@ -4,7 +4,7 @@
 
 ### Online code submition
 
-For tutorials 0, you can do all your work on your computer and submit it to Github classroom.
+For tutorial 0, you can do all your work on your computer and submit it to Github classroom.
 
 We will auto-grade the submitted assignments on the deadline There will be some hidden test cases after the deadline so make sure your code can handle all kinds of valid inputs.
 
