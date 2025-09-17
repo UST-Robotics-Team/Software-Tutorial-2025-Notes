@@ -10,7 +10,7 @@ Leo Wong, Wesley Leung
 
 ## Download & Install
 
-First download the STM32CubeIDE installer from our [Github](https://github.com/UST-Robotics-Team/Software-Tutorial-2022/releases/tag/Installer).
+First download the STM32CubeIDE installer from our [Github](https://github.com/UST-Robotics-Team/Software-Tutorial-2025-Notes/releases/tag/Installer).
 
 > :warning: **Warning**: NEVER place the PCB on top of your computer, it may kill your computer.
 
