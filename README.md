@@ -12,6 +12,18 @@ Here is a brief overview of our schedule:
 
 [Homework arrangement](Homework-Arrangements.md)
 
+### Installation of STM32CubeIDE
+
+**Please Finish this before First Tutorial!!!**
+
+Installation guides for different operating systems:
+* [Windows](installs/stm32_windows.md)
+* [MacOS](installs/stm32_macos.md)
+
+If you encounter any problems during installation or usage of the IDE, please check out our FAQ page below:
+* [FAQ](installs/stm32_problems.md)
+* Contact any PIC for help in Discord
+
 ### Self Learn Module
 * [Self-learning basic C](tutorial-0-c/self_study/README.md)
 
