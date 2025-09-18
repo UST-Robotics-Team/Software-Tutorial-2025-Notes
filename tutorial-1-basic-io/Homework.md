@@ -65,14 +65,14 @@ Consider 2 uses for a single button: (choose BTN1 or BTN2)
 
 ## Task 2: **Morse Code Generator: Words only**
 
-> Total: 16
+> Total: 18
 
 You will make a basic morse code input/output using what you've learnt in this tutorial and the online tutorial before.
 
 <img src="image/MorseCode.png" width= "1000" alt="Morse Code"/>
 
-It will only accept morse code for A-Z (ignore numbers or punctuations). Therefore you can assume the maximum of dots and dashes per character is 4. \
-The morse code generator will only be change **VALID** morse code strings into flashing lights.
+In this task, we will only encode the letters A-Z (ignoring numbers or punctuation). Therefore you can assume the maximum of dots and dashes per character is 4. \
+The morse code generator will only be change **VALID** encoded sequences into flashing lights.
 
 
 I'll go over some self-defined unofficial terms before I type the same thing over and over again.
@@ -85,7 +85,7 @@ I'll go over some self-defined unofficial terms before I type the same thing ove
 
 #### (a) Dots and Dashes
 
-For quality of life and ease of debugging, we want you to display the string of dots and dashes on the TFT screen as you do the inputs.
+For quality of life and ease of debugging (and checking HW), we want you to display the dots and dashes on the TFT screen as you enter the inputs.
 
 - When `BTN1` is pressed (short), `". "` is inputted and shown on the TFT screen. **(@1)**
 - When `BTN1` is pressed (medium), `"_ "` is inputted and shown on the TFT screen. **(@1)**
@@ -102,9 +102,10 @@ _[]
 
 ### Part 2: Validation
 
-Since the intended outputs are only letters, we know that there will only be 4 or less dots or dashes. Therefore we imply a restriction on the input.
+Since the intended outputs are only letters, we know that there will only be 4 or less dots or dashes. Therefore we impose a restriction on the input.
 
 - Only a maximum of 4 dots/dashes can be used per character. **(@1)**
+  - @0 if an encoded sequence has more than 4 dots/dashes
 ```
 - If you do 4 short BTN1 presses and 1 medium BTN1 press
 . . . . _ WRONG
@@ -114,17 +115,18 @@ Since the intended outputs are only letters, we know that there will only be 4 o
 
 The generator will validate the dot/dash sequence every time a new line is inputted or when the complete input is sent for outputting.
 
-- When `BTN2` is pressed (short), the display goes onto a new line. **(@1)**\
+- When `BTN2` is pressed (short), the display goes onto a new line (also resets the 4 dot/dash requirement). **(@1)**\
 (@1 **only if** after a short BTN2 press, following dots and dashes are applied on a new line)
 
-- Check if the string sequence is valid **(Total @3)**
-  - If valid, show the corresponding letter next to the sequence (right side). **(Total @2, each point @1)**
-    - @1 for correct letter for all cases, @0.5 if a mix of wrong and correct letters, @0 if does nothing/always gives wrong letter
-    - @1 for correct placement of letter (right side of dots/dashes), @0 if wrong position
-  - If invalid, delete the entire sequence up til the previous line. **(@1)** (see sample) \
-  (@0.5 if delete less or more than required, @0 if nothing is deleted)
+- Check if the string sequence is valid **(Total @5)**
+  - If valid, show the corresponding letter next to the sequence (right side). **(Total @3, @2+@1)**
+    - @2 for correct letter for all cases, @1 if a mix of wrong and correct letters, @0.5 if displays the wrong letter, @0 if fails to display any letter.
+    - @1 for correct placement of letter (right side of dots/dashes), @0 if wrong position.
+  - If invalid, delete the entire sequence up til the previous line. **(Total @2, @1+@1)**
+    - @1 if can successfully detect invalid string. (aka does not show letter when the encoded sequence is invalid)
+    - @1 if can successfully delete the invalid sequence, @0.5 if delete more/less than required, @0 if deleted nothing.
 
-#### Sample of what would appear on the TFT screen for 2 sets of responses:
+#### Example of what would appear on the TFT screen for 2 sets of responses:
 ```
 - Screen before short press of BTN2
 . . . .
@@ -137,7 +139,7 @@ The generator will validate the dot/dash sequence every time a new line is input
 
 ```
 
-#### Sample of invalid inputs:
+#### Example of invalid inputs:
 ```
 - Screen before short press of BTN2
 _ . _ . C
@@ -149,10 +151,9 @@ _ . _ . C
 
 Additional functions of buttons:
 - When `BTN1` is pressed (long), clear the inputted dots and dashs up to the previous space character. **(@1)** \
-(@0.5 if delete less or more than required, @0 if nothing is deleted)
+(@0.5 if delete more/less than required, @0 if nothing is deleted)
 - When `BTN2` is pressed (long), clear everything.  **(@1)** \
-(@0.5 if removes something, but not everything)
-
+(@0.5 if removes something, but not everything, @0 if nothing is deleted)
 
 
 ### Part 3: Outputs
@@ -169,17 +170,17 @@ Output goes as follows:
   - Gaps between dots/dashes: LED off for 750ms
 
 
-When the input is `sent`, output all the listed dot and dash sequences as flashes using any 1 `LED`. **(Total @3, each point @1)**
+When the input is `sent`, output all the listed dot and dash sequences as flashes using any 1 `LED`. **(Total @3, @1+@1+@1)**
   - @1 if dots and dashes are correct, @0.5 if length of flashes is inconsistent, @0 if dots and dashes are indistinguishable.
   - @1 if space is correct, @0.5 if length of flashes is inconsistent, @0 if spaces are indistinguishable.
   - @1 if gaps between dots and dashes are correct, @0.5 if length of flashes is inconsistent
 
-After the input is `sent`, clear everything on screen and display the outputted word using latin alphabets. **(Total @3)**
-  - @1 if a string of words is displayed on screen
-  - @2 if the correct string of words is displayed on screen (with something else)
+After the input is `sent`, clear everything on screen and display the decoded word. **(Total @3)**
   - @3 if **ONLY** the correct string is displayed on screen
+  - @2 if the correct string of letter is displayed on screen (with something else)
+  - @1 if any string of letter is displayed on screen
 
-#### Sample of output
+#### Example of output
 ```
 - Before BTN2(medium)
 _ _ M
