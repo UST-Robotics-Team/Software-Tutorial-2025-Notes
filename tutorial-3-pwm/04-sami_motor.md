@@ -4,10 +4,11 @@
 >At the end of this section, you will appreciate the fun and beauty of using this motor : ).
 
 This Motor is a **Brushless(?) DC Geared** Motor that is controlled with PWM.\
-We control the **speed** of the motor with **PWM**
+We control the **speed** of the motor with **PWM (50Hz)**
 and\
 the **direction** of the motor with a **GPIO**.\
-~~and we ignore the encoder cause I'm lazy~~
+The **encoder** feedback returns the **position** of the motor with pulses and will be implemented for you
+~~we don't teach it cause I'm lazy~~
 
 Simply speaking, the higher duty the PWM has, the faster the motor spins.
 
@@ -31,11 +32,9 @@ e.g. PWM duty cycle = 50% (0.5), dir = CW (Clockwise)
 ## Optional
 >some small potato yapping
 
->the following part will be mainly conceptual, we dont expect you guys to need to implement any of this stuff in RDC or even in the team.
-
 The following parts may be less useful in general (hence optional) since we have never actually used this motor in the team before, but if you really want to use this motor or learn a bit more, feel free to check it out.
 
-Also these are going to be purely conceptional. We dont expect any implementation.
+Also these are going to be purely conceptual. We dont expect any implementation.
 
 ### Encoder
 >Although I did not want to deal with this, here we are.
@@ -56,16 +55,18 @@ From the description, you may want to do polling/interrupt on the encoder pin to
 In the PWM section, we used PSC, ARR, CNT & CCR of the TIMer to generate the PWM.\
 Here we will be using mainly the counter CNT.
 
-By scaling the count and change in count according to the settings of the motor, we could obtain a somewhat accurate reading of the position and velocity of the encoder with some extra steps.
+By scaling the count and change in count according to the settings of the motor, we could obtain a somewhat accurate reading of the position and velocity of the encoder with some extra steps ~~maths~~.
 
 The benefit of using TIMer is that it does the counting for you so it makes things more error prone and performance would be optimized for you, making it more efficient.
 
 [Reference](https://deepbluembedded.com/stm32-timer-encoder-mode-stm32-rotary-encoder-interfacing/)
+
 [Reference (in Chinese)](https://medium.com/%E9%96%B1%E7%9B%8A%E5%A6%82%E7%BE%8E/%E5%AF%A6%E7%94%A8%E5%B0%8F%E7%89%A9-rotary-encoder-with-stm32-timer-c31977c3ba84)
 
 ## Conclusion
 
 ~~Don't use this motor.~~
+
 This motor is quite different form the ones we usually use which are controlled by current.
 
 There is (likely) a control board embeded inside the motor handling control related matters, which would be really important in the development of robotics.

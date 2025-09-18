@@ -22,3 +22,4 @@ Classworks: show your working mainboard + servo to our seniors during the tutori
 * [PWM](01-pwm.md)
 * [Servo Motor](02-servo_motor.md)
 * [Classwork](03-classwork.md)
+* [SAMI Motor](04-sami_motor.md)
