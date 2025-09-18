@@ -12,7 +12,7 @@ As we will start to learn how to work with multiple `.c` files in Tutorial 1 and
 
 However, if you insist to work on your computer's VSCode, please refer to our guide (the tutorial for Windows only):
 
-* [**Windows**](main/installs/gcc_windows.md)
+* [**Windows**](../installs/gcc_windows.md)
 
 ### CubeIDE
 
@@ -20,8 +20,8 @@ For robotics programming, we will teach you to install [**CubeIDE**](https://www
 
 You are recommended to set it up **now**, but we will make sure your installation works in the first tutorial. Please refer to our guide:
 
-* [**Windows**](main/installs/stm32_windows.md)
-* [**MacOS**](main/installs/stm32_macos.md) 
+* [**Windows**](../installs/stm32_windows.md)
+* [**MacOS**](../installs/stm32_macos.md) 
 
 If your computer cannot flash code to the board, please refer to the guide [**here**](main/installs/stm32_problems.md).
 
