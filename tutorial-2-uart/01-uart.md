@@ -22,7 +22,7 @@ To communicate via UART, connect the devices as shown below:
 
 ![](./image/connection.jpeg)
 
-> The GND connection ensures both devices share the same reference voltage. Without a common ground, signals may be misinterpreted, so always connect GND between devices.
+> The GND connection ensures both devices share the same reference voltage. Without a common ground, signals may be misinterpreted, so **always** connect GND between devices.
 
 ### UART Configuration
 
@@ -55,7 +55,7 @@ The baud rate defines how many bits are sent per second. Common values include:
 
 `115200` is widely supported and fast enough for most applications. For example, with 1 start bit, 8 data bits, no parity, and 1 stop bit (10 bits total per byte), you can send 11,520 bytes per second at 115200 baud.
 
-> Always set the same baud rate on both sides of the connection.
+> **Always** set the same baud rate on both sides of the connection.
 
 ### Initializing UART Pins
 
@@ -164,7 +164,7 @@ You can also communicate between the STM32 mainboard and your computer using a U
 
 ### Blocking vs. Non-Blocking Communication
 
-When calling `HAL_UART_Transmit()/HAL_UART_Receive()`, your code will pause at the function call until data is successfully transmitted/received as the MCU is continuously asking the UART hardware peripheral whether a byte is sended/received, this is called `blocking function`. This is unaccetably inefficient espesially for receiving data as most of the MCU resources are wasted for waiting data income. (FYI most main logic finish under 5ms)
+When calling `HAL_UART_Transmit()/HAL_UART_Receive()`, your code will pause at the function call until data is successfully transmitted/received as the MCU is continuously asking the UART hardware peripheral whether a byte is sended/received, this is called `blocking function`. This is unaccetably inefficient espesially for receiving data as most of the MCU resources are wasted for waiting data income. (FYI most main logic finish under 5ms, except for image processing)
 
 For low speed situations, setting a relatively low `Timeout` as above is accpectable. But for most robotics task, we would like to run the main logic as frequent as possible. In some situations this is problematic, for example:
 
@@ -239,6 +239,7 @@ int main(void)
 
     while (1)
     {
+        // Comment the original transmit function
         // HAL_UART_Transmit(&huart1, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
         main_logic();
     }
@@ -284,6 +285,7 @@ int main(void)
 
     while (1)
     {
+        // Comment the original receive function
         // Code will stop at here waiting for at most 100ms
         // HAL_UART_Receive(&huart1, rx_buff, sizeof(rx_buff), 100);
 

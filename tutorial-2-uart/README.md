@@ -5,7 +5,7 @@
 This tutorial covers UART communication and Bluetooth integration with the STM32 mainboard.
 
 - **Classwork:** Demonstrate your working mainboard and serial monitor output to seniors during the tutorial.
-- **Homework:** ?
+- **Homework:** Demonstrate your working mainboard and serial monitor output to seniors before the deadline.
 
 ## Schedule
 
