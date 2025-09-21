@@ -20,9 +20,11 @@ In this assigment we will practice programming in C and do implement simple imag
 Here are what to expect by the time you complete the assigment:
 
 1. Perform simple blurring and edge extraction
+   
 ![result1](images/pngs/result1.png)
 
 2. During the process, you will also make a simple image recognition program to read a Tic-Tac-Toe board (slightly inspired by the upcoming Robocon 2026)
+
 ![result2](images/pngs/result2.png)
 
 Let's get started, the skeleton code can be downloaded here: [skeleton.zip](skeleton.zip)
@@ -32,6 +34,7 @@ You can drag and drop the `.zip` file to the left side of the editor (the blue b
 ![alt text](images/pngs/directory.png)
 
 Any commands, are to be written in the terminal (red box as shown below)
+
 ![terminal](images/pngs/terminal.png)
 
 To unzip the zipfile (on codespace):
@@ -333,6 +336,7 @@ To extract edges from images, you need to do the following:
 - Round the value obtained above down.
 
 For `robot.bmp`, the following image should be obtained:
+
 ![alt text](images/pngs/edges.png)
 
 > Hint: How can I keep all that using floating point values? Again, you may define your own structures and helper functions. Although this is not the only way to achieve the intended result...
