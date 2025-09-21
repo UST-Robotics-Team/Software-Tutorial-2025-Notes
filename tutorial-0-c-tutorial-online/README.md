@@ -44,7 +44,6 @@ Here are some exercises that used to be a classwork in our previous tutorials.
 
 ## Homeworks
 
-Please submit these homeworks before 4 Oct 2025 23:59
-
-[To Be Released]
+Please submit these homeworks before 5 Oct 2025 23:59:59 HKT
+[here](https://github.com/UST-Robotics-Team/Software-Tutorial-2025-Notes/blob/main/tutorial-0-c-self_study/homework/README.md)
 
