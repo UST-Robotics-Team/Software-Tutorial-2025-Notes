@@ -65,7 +65,7 @@ Consider 2 uses for a single button: (choose BTN1 or BTN2)
 
 ## Task 2: **Morse Code Generator: Words only**
 
-> Total: 18
+> Total: 15
 
 You will make a basic morse code input/output using what you've learnt in this tutorial and the online tutorial before.
 
@@ -75,10 +75,7 @@ In this task, we will only encode the letters A-Z (ignoring numbers or punctuati
 The morse code generator will only be change **VALID** encoded sequences into flashing lights.
 
 
-I'll go over some self-defined unofficial terms before I type the same thing over and over again.
-> Short Press (Duration < 200ms) \
-> Medium Press (Duration > 200ms, < 1000ms) \
-> Long Press (Duration > 1000ms) \
+I'll go over a self-defined unofficial term before I type the same thing over and over again.
 > [] (Space character) will be used to represent white space character in places to clearly indicate where white spaces should be.
 
 ### Part 1: The Inputs
@@ -87,8 +84,8 @@ I'll go over some self-defined unofficial terms before I type the same thing ove
 
 For quality of life and ease of debugging (and checking HW), we want you to display the dots and dashes on the TFT screen as you enter the inputs.
 
-- When `BTN1` is pressed (short), `". "` is inputted and shown on the TFT screen. **(@1)**
-- When `BTN1` is pressed (medium), `"_ "` is inputted and shown on the TFT screen. **(@1)**
+- When `BTN1` is pressed and held for <200ms, `". "` is inputted and shown on the TFT screen. **(@1)**
+- When `BTN1` is pressed and held for <1000ms but >200ms, `"_ "` is inputted and shown on the TFT screen. **(@1)**
 ```
 - For short BTN1 press:
 .[]
@@ -115,8 +112,17 @@ Since the intended outputs are only letters, we know that there will only be 4 o
 
 The generator will validate the dot/dash sequence every time a new line is inputted or when the complete input is sent for outputting.
 
-- When `BTN2` is pressed (short), the display goes onto a new line (also resets the 4 dot/dash requirement). **(@1)**\
+- When `BTN1` is pressed and held >1000ms and the lowest codestring is unvalidated, the display goes onto a new line (also resets the 4 dot/dash requirement). **(@1)**\
 (@1 **only if** after a short BTN2 press, following dots and dashes are applied on a new line)
+
+```
+- Validated code strings
+. _ _ _ J
+_ T
+- Unvalidated code strings (aka no letter on the right side)
+. _ _ .       // even though this is the codestring for P, it has not been validated because there is no P next to the codestring.
+. _ . _       // this is just an invalid codestring.
+```
 
 - Check if the string sequence is valid **(Total @5)**
   - If valid, show the corresponding letter next to the sequence (right side). **(Total @3, @2+@1)**
@@ -128,9 +134,9 @@ The generator will validate the dot/dash sequence every time a new line is input
 
 #### Example of what would appear on the TFT screen for 2 sets of responses:
 ```
-- Screen before short press of BTN2
+- Screen before BTN1 hold of 1000ms
 . . . .
-- Screen after short press of BTN2
+- Screen after BTN1 hold of 1000ms
 . . . . H
 
 - Screen after more inputs 
@@ -141,27 +147,22 @@ The generator will validate the dot/dash sequence every time a new line is input
 
 #### Example of invalid inputs:
 ```
-- Screen before short press of BTN2
+- Screen before BTN1 hold of 1000ms
 _ . _ . C
 . _ . _
-- Screen after short press of BTN2
+- Screen after BTN1 hold of 1000ms
 _ . _ . C
 
 ```
-
-Additional functions of buttons:
-- When `BTN1` is pressed (long), clear the inputted dots and dashs up to the previous space character. **(@1)** \
-(@0.5 if delete more/less than required, @0 if nothing is deleted)
-- When `BTN2` is pressed (long), clear everything.  **(@1)** \
-(@0.5 if removes something, but not everything, @0 if nothing is deleted)
 
 
 ### Part 3: Outputs
 
 The final part is the final output results
 
-- When `BTN2` is pressed (medium), send the input up for outputting. **(@1)**\
+- When `BTN1` is held for >1000ms and there is no unvalidation code string, send the input up for outputting. **(@1)**\
 (@1 if LED flashes after this button is pressed + has input on screen, @0 otherwise)
+
 
 Output goes as follows:
   - Dot: LED on for 250ms
@@ -182,13 +183,14 @@ After the input is `sent`, clear everything on screen and display the decoded wo
 
 #### Example of output
 ```
-- Before BTN2(medium)
+- Before holding button for 1000ms
 _ _ M
 _ _ _ O
 . _ . R
 . . . S
-. 
-- After BTN2(medium)
+. E
+
+- After holding button for 1000ms
 MORSE 
 - Also flashes MORSE in morse code
 ```
