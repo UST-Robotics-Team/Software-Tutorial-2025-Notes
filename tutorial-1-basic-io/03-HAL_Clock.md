@@ -91,6 +91,6 @@ What's wrong with the code below?
 - Successfully configured PA8 as LED1 **(@1)***
 - When BTN1 is pressed, toggle LED1 **once** **(@1)**
 - When BTN1 is held longer than 1s, toggle LED1 every 500ms **(@1)**
-- When BTN is held longer than 5s, toggle LED1 every 100ms for 1s, and change the interval from 100ms to 300ms for 2s, then back to 100ms for 1s, and continue until the button is released. **(@1)**
+- When BTN is held longer than 10s, toggle LED1 every 400ms for 4s, and change the interval from 400ms to 1000ms for 10s, then back to 400ms for 4s, and continue until the button is released. **(@1)**
 
 [Next Page](04-TFT.md)
