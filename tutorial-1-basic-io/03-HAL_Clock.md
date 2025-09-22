@@ -91,6 +91,6 @@ What's wrong with the code below?
 - Configure LED1 (PA8, GPIO_Output, User label: LED1) **(@1)**
 - When BTN1 is pressed, toggle LED1 **(@1)**
 - When BTN1 is held longer than 1s, toggle LED1 every 500ms **(@1)**
-- When BTN is held longer than 3s, toggle LED1 every 100ms for 1s, and change the interval from 100ms to 300ms for 2s. **(@1)**
+- When BTN is held longer than 3s, toggle LED1 every 100ms for 1s, and change the interval from 100ms to 300ms for 2s, then back to 100ms, and continues the change until the button is released. **(@1)**
 
 [Next Page](04-TFT.md)
