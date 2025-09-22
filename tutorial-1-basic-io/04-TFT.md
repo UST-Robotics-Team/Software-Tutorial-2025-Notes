@@ -161,7 +161,7 @@ while(1){
 ## Classwork 2: TFT
 
 - Print the time elapsed with the format of `mm:ss:sssZ` where `sssZ` means millisecond. e.g. `00:23:109` **(@2)**
-- Toogle the highlight of the text you print every seconds, which means: **(@2)**
+- Toggle the highlight of the text you print every seconds, which means: **(@2)**
   - 1st second: print normal text
   - 2nd second: print hightlighted text
     - Recall1: 
