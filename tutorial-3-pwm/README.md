@@ -15,7 +15,8 @@ Classworks: show your working mainboard + servo to our seniors during the tutori
 
 * configure a PWM signal for a servo
 * control the servo to move to specific angles
-* control the servo to move slowly (Homework)
+* ~~control the servo to move slowly (Homework)~~
+* conrtrol the sami motor speed (and direction)
 
 ## Tutorial 3 Links
 
