@@ -66,7 +66,7 @@ Before you start doing homework, You may find these defines in `lcd.h` useful:
 
 ## Task 2: **Morse Code Generator: Words only**
 
-> Total: 15
+> Total: 16
 
 You will make a basic morse code input/output using what you've learnt in this tutorial and the online tutorial before.
 
@@ -75,14 +75,14 @@ You will make a basic morse code input/output using what you've learnt in this t
 In this task, we will only encode the letters A-Z (ignoring numbers or punctuation). Therefore you can assume the maximum of dots and dashes per character is 4. \
 The morse code generator will only be change **VALID** encoded sequences into flashing lights.
 
-Due to the limitations of the TFT screen size, the maximum number of letters an encoded word can have is 10.
+Due to the limitations of the TFT screen size, the maximum number of letters an encoded word can have is 10. We will not try to encoded words with more than length 10.
 
 
 I'll go over a self-defined unofficial term before I type the same thing over and over again.
 > [] (Space character) will be used to represent white space character in places to clearly indicate where white spaces should be.
 
 ```c
-char** MORSE = 
+char* MORSE[] =
 {"._", // A
 "_...", // B
 "_._.", // C
@@ -113,8 +113,10 @@ char** MORSE =
 
 char* ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 ```
-These 2 arrays will be provided to you. (You can copy them and put them into your code if you want.)
-Hint: You might find writing a helper function to convert between the morse code and letters useful.
+These 2 arrays will be provided to you. (You can copy them and put them into your code if you want)\
+(If so, go to `main.c` and scroll up, and put them below the lines `/* Private define ------------------------------------------------------------*/` and `/* USER CODE BEGIN PD */`)
+- **Hint**: You might find writing a helper function to convert between the morse code and letters useful.
+- You can use the function `tft_force_clear{}` to clear the tft screen.
 
 ### Part 1: The Inputs
 
@@ -155,8 +157,8 @@ The generator will validate the dot/dash sequence every time a new line is input
 
 ```
 - Validated code strings
-. _ _ _ J
-_ T
+. _ _ _  J
+_        T
 - Unvalidated code strings (aka no letter on the right side)
 . _ _ .       // even though this is the codestring for P, it has not been validated because there is no P next to the codestring.
 . _ . _       // this is just an invalid codestring.
@@ -175,21 +177,21 @@ _ T
 - Screen before BTN1 hold of 1000ms
 . . . .
 - Screen after BTN1 hold of 1000ms
-. . . . H
+. . . .  H
 
 - Screen after more inputs 
-. . . . H
-. _ _ W
+. . . .  H
+. _ _    W
 
 ```
 
 #### Example of invalid inputs:
 ```
 - Screen before BTN1 hold of 1000ms
-_ . _ . C
+_ . _ .  C
 . _ . _
 - Screen after BTN1 hold of 1000ms
-_ . _ . C
+_ . _ .  C
 
 ```
 
@@ -211,22 +213,24 @@ Output goes as follows:
 
 When the input is `sent`, output all the listed dot and dash sequences as flashes using any 1 `LED`. **(Total @3, @1+@1+@1)**
   - @1 if dots and dashes are correct, @0.5 if length of flashes is inconsistent, @0 if dots and dashes are indistinguishable.
-  - @1 if space is correct, @0.5 if length of flashes is inconsistent, @0 if spaces are indistinguishable.
-  - @1 if gaps between dots and dashes are correct, @0.5 if length of flashes is inconsistent
+  - @1 if spaces and gaps are correct, @0.5 if length of flashes is inconsistent, @0 if spaces and gaps are indistinguishable.
+  - @1 if all input methods are disabled during the output. @0 if the button changes the TFT screen during output.
 
 After the input is `sent`, clear everything on screen and display the decoded word. **(Total @3)**
   - @3 if **ONLY** the correct string is displayed on screen
   - @2 if the correct string of letter is displayed on screen (with something else)
   - @1 if any string of letter is displayed on screen
 
+After the Morse Code finishs flashing, initialise everything to be ready for input again. **(@1)**
+
 #### Example of output
 ```
 - Before holding button for 1000ms
-_ _ M
-_ _ _ O
-. _ . R
-. . . S
-. E
+_ _      M
+_ _ _    O
+. _ .    R
+. . .    S
+.        E
 
 - After holding button for 1000ms
 MORSE 
