@@ -81,14 +81,48 @@ Due to the limitations of the TFT screen size, the maximum number of letters an 
 I'll go over a self-defined unofficial term before I type the same thing over and over again.
 > [] (Space character) will be used to represent white space character in places to clearly indicate where white spaces should be.
 
+```c
+char** MORSE = 
+{"._", // A
+"_...", // B
+"_._.", // C
+"_..", // D
+".", // E
+"..__", // F
+"__.", // G
+"....", // H
+"..", // I
+".___", // J
+"_._", // K
+"._..", // L
+"__", // M
+"_.", // N
+"___", // O
+".__.", // P
+"__._", // Q
+"._.", // R
+"...", // s
+"_", // T
+".._", // U
+"..._", // V
+".__", // W
+"_.._", // X
+"_.__", // Y
+"__.." // Z
+};
+
+char* ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+```
+These 2 arrays will be provided to you. (You can copy them and put them into your code if you want.)
+
 ### Part 1: The Inputs
 
 #### (a) Dots and Dashes
 
 For quality of life and ease of debugging (and checking HW), we want you to display the dots and dashes on the TFT screen as you enter the inputs.
 
-- When `BTN1` is pressed and held for <200ms, `". "` is inputted and shown on the TFT screen. **(@1)**
-- When `BTN1` is pressed and held for <1000ms but >200ms, `"_ "` is inputted and shown on the TFT screen. **(@1)**
+- When `BTN1` is pressed and held for <200ms (short), `". "` is inputted and shown on the TFT screen. **(@1)**
+- When `BTN1` is pressed and held for <1000ms but >200ms (medium), `"_ "` is inputted and shown on the TFT screen. **(@1)**
 ```
 - For short BTN1 press:
 .[]
