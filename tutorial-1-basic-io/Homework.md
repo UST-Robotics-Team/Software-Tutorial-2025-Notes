@@ -75,6 +75,8 @@ You will make a basic morse code input/output using what you've learnt in this t
 In this task, we will only encode the letters A-Z (ignoring numbers or punctuation). Therefore you can assume the maximum of dots and dashes per character is 4. \
 The morse code generator will only be change **VALID** encoded sequences into flashing lights.
 
+Due to the limitations of the TFT screen size, the maximum number of letters an encoded word can have is 10.
+
 
 I'll go over a self-defined unofficial term before I type the same thing over and over again.
 > [] (Space character) will be used to represent white space character in places to clearly indicate where white spaces should be.
