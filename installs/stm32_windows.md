@@ -65,12 +65,15 @@ _Note that we may have some library changes from time to time. So always follow 
 >
 > Choose STM32 Application the left and select _Debugger_ Tab.
 >
-> Change Debug probe to `ST-LINK (OpenOCD).` Also change the OpenOCD Command to `"${stm32cubeide_openocd_path}\openocd.exe"`(Note the different `\` and the `.exe`)
 >
-> Click `Show generator options...` under `Configuration Scripts` to reveal more options.
+> ![](/images/STLink%20GDB%20Server.png)
+> 
+> Change Debug probe to `ST-LINK (GDB Server)`. Also double check that the OpenOCD command is the same as the one in the image above.
 >
+> ![](/images/STLink%20Software%20System%20Reset.png)
+> 
 > In `Mode Setup`, select `Software system reset` in `Reset Mode`.
-
+>
 > <img src="https://i.imgur.com/Wa5m30S.png" alt="" data-size="original">
 >
 > If you see this, you should be good to go. Ask someone to give you a mainboard and a ST-LINK (the USB like thingy we use to flash code onto the board) and see if it works.
