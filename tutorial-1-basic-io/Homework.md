@@ -116,7 +116,7 @@ char* ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 These 2 arrays will be provided to you. (You can copy them and put them into your code if you want)\
 (If so, go to `main.c` and scroll up, and put them below the lines `/* Private define ------------------------------------------------------------*/` and `/* USER CODE BEGIN PD */`)
 - **Hint**: You might find writing a helper function to convert between the morse code and letters useful.
-- You can use the function `tft_force_clear{}` to clear the tft screen.
+- You can use the function `tft_force_clear()` to clear the tft screen.
 
 ### Part 1: The Inputs
 
