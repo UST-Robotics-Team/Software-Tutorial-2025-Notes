@@ -43,8 +43,9 @@ Before you start doing homework, You may find these defines in `lcd.h` useful:
 #### **Part 2: Edge Triggering**
 
 - We want to print `Hello, (Your name)` for 1 second when the button is pressed, but only once for each press, so holding the button does nothing more. **(@1)**
-- When the button is released, we want to turn on the LED for 1 second, but again only once for each release. **(@1)**
 - The process repeats. i.e. it will print text again if you click the button. **(@1)**
+- When the button is released, we want to turn on the LED for 1 second, but again only once for each release. **(@1)**
+    - This implementation will cause such that if you press the button multiple times in short succession, you will extend the duration that the LED is on for and the time your name is displayed.
 - Keywords:
   - The event of a signal going from low to high is called the _**rising edge**_ and the opposite is the _**falling edge**_
   - The `gpio_read()` macro gives us the current state, but edge triggering also requires knowledge of the **past state** as well as some logic
