@@ -101,7 +101,7 @@ char** MORSE =
 ".__.", // P
 "__._", // Q
 "._.", // R
-"...", // s
+"...", // S
 "_", // T
 ".._", // U
 "..._", // V
@@ -114,6 +114,7 @@ char** MORSE =
 char* ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 ```
 These 2 arrays will be provided to you. (You can copy them and put them into your code if you want.)
+Hint: You might find writing a helper function to convert between the morse code and letters useful.
 
 ### Part 1: The Inputs
 
