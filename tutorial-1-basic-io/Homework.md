@@ -70,7 +70,7 @@ Before you start doing homework, You may find these defines in `lcd.h` useful:
 
 You will make a basic morse code input/output using what you've learnt in this tutorial and the online tutorial before.
 
-<img src="image/Morse_Code.png" width= "1000" alt="Morse Code"/>
+<img src="image/MorseCode.png" width= "1000" alt="Morse Code"/>
 
 In this task, we will only encode the letters A-Z (ignoring numbers or punctuation). Therefore you can assume the maximum of dots and dashes per character is 4. \
 The morse code generator will only be change **VALID** encoded sequences into flashing lights.
