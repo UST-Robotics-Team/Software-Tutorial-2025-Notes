@@ -211,15 +211,13 @@ Output goes as follows:
   - Gaps between dots/dashes: LED off for 750ms
 
 
-When the input is `sent`, output all the listed dot and dash sequences as flashes using any 1 `LED`. **(Total @3, @1+@1+@1)**
+When the input is `sent`, output all the listed dot and dash sequences as flashes using any 1 `LED`. **(Total @2, @1+@1)**
   - @1 if dots and dashes are correct, @0.5 if length of flashes is inconsistent, @0 if dots and dashes are indistinguishable.
   - @1 if spaces and gaps are correct, @0.5 if length of flashes is inconsistent, @0 if spaces and gaps are indistinguishable.
-  - @1 if all input methods are disabled during the output. @0 if the button changes the TFT screen during output.
 
-After the input is `sent`, clear everything on screen and display the decoded word. **(Total @3)**
-  - @3 if **ONLY** the correct string is displayed on screen
-  - @2 if the correct string of letter is displayed on screen (with something else)
-  - @1 if any string of letter is displayed on screen
+After the input is `sent`, clear everything on screen and display the decoded word. **(Total @3, @2+@1)**
+  - @2 if **ONLY** the correct string is displayed on screen
+  - @1 if all input methods are disabled during the output. @0 if the button changes the TFT screen during output.
 
 After the Morse Code finishs flashing, initialise everything to be ready for input again. **(@1)**
 
