@@ -27,12 +27,10 @@ Before you start doing homework, You may find these defines in `lcd.h` useful:
 
 > Total: 8
 
-Consider 2 uses for a single button: (choose BTN1 or BTN2)
-
 #### **Part 1: Level Triggering**
 
 - While the button is down, print `Hello, (Your name)` on TFT **(@1)**
-- While it is not, flash the LED (at least one LED). **(@1)**
+- While it is not, turn on the LED (at least one LED). **(@1)**
 - Two actions should not happen simultaneously.
 - Hints:
   - In this case every time the loop comes around, we are concerned with the **current state** (or level) of the buttons GPIO Pin
@@ -45,7 +43,7 @@ Consider 2 uses for a single button: (choose BTN1 or BTN2)
 #### **Part 2: Edge Triggering**
 
 - We want to print `Hello, (Your name)` for 1 second when the button is pressed, but only once for each press, so holding the button does nothing more. **(@1)**
-- When the button is released, we want to flash the LED for 1 second, but again only once for each release. **(@1)**
+- When the button is released, we want to turn on the LED for 1 second, but again only once for each release. **(@1)**
 - The process repeats. i.e. it will print text again if you click the button. **(@1)**
 - Keywords:
   - The event of a signal going from low to high is called the _**rising edge**_ and the opposite is the _**falling edge**_
