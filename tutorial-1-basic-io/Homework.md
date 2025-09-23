@@ -55,7 +55,7 @@ Before you start doing homework, You may find these defines in `lcd.h` useful:
 
 - Create a sprite in the middle of the screen. (Can be in any shape other than simple rectangle) **(@1)**
 - It will move to the left for one `CHAR_WIDTH` when `BTN1` is clicked and released **(@2)**
-- If hold the BTN for >2000ms, the direction will switch, aka if you click the button , the sprite will go right instead **(@3)**
+- If hold the BTN for >2000ms, the direction will switch, aka if you click the button , the sprite will go right for one `CHAR_WIDTH` instead **(@3)**
 - You can display the direction that the sprite is going at the bottom of the screen for ease of debugging.
 
 
