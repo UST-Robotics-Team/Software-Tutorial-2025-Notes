@@ -175,5 +175,7 @@ while(1){
       void tft_init(TFT_ORIENTATION orientation, uint16_t bg_color, uint16_t text_color, uint16_t text_color_sp, uint16_t highlight_color);
       ```
   - 3rd second: print normal text
+  - 4th second: highlight
+  - 5th and 6th, repeat the pattern
 
 [Next Page](Homework.md)
