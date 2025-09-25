@@ -149,12 +149,11 @@ void drawTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, in
 while(1){
     /*This is referring to your main while(1) loop,
       Do not create another while(1)*/
-    if(tft_update(50) == 0){
-        tft_prints(0, 0, "Hello World"); // normal
-        tft_prints(0, 1, "[Hello World]");  // This is a special text with differnt color
-        tft_prints(0, 2, "{Hello World}");  // This is a higlighted text
-        tft_prints(0, 3, "|Hello World|");  // This is a underlined text
-    }
+    tft_prints(0, 0, "Hello World"); // normal
+    tft_prints(0, 1, "[Hello World]");  // This is a special text with differnt color
+    tft_prints(0, 2, "{Hello World}");  // This is a higlighted text
+    tft_prints(0, 3, "|Hello World|");  // This is a underlined text
+    tft_update(50);
 }
 ```
 
