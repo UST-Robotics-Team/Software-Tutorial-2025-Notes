@@ -87,8 +87,6 @@ What's wrong with the code below?
   * After 1 second, repeat from step 1.
 * Keyword: Finite State Machine
 -->
-- Successfully configured PA0 as BTN1 **(@1)**
-- Successfully configured PA8 as LED1 **(@1)**
 - Make your code, such that BTN1 does all of the following at the same time:
   - When BTN1 is pressed, toggle LED1 **once** **(@1)**
   - After BTN1 is held longer than 1s, toggle LED1 every 500ms **(@1)**
