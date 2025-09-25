@@ -26,7 +26,7 @@ After you have installed the IDE, please follow the steps below to properly setu
 
 ### Import the project files
 
-Download the [sw-tutorial.zip](../images/sw-tutorial.zip) we prepared for you below.
+Download the [2025-sw-tutorial-v2.zip](../images/2025-sw-tutorial-v2.zip) we prepared for you below.
 
 _Note that we may have some library changes from time to time. So always follow what the tutorial notes say._
 
@@ -36,7 +36,7 @@ _Note that we may have some library changes from time to time. So always follow 
 
 > &#x20;![](<../../../images/image (1) (1).png>)
 >
-> Open STMCubeIDE 1.10.1 and you will see the following window.
+> Open STMCubeIDE 1.19.1 and you will see the following window.
 >
 > You can choose whichever directory you like to place the project files. Just make sure you can find it afterwards.
 
