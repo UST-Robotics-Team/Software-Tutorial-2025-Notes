@@ -55,7 +55,7 @@ The MCU starts counting time starting from when it receives power. Using `HAL_Ge
   }
   ```
 
-### Demo 2: Writing Code in a function 
+### Demo: Writing Code in a function 
 While you might only need to write tens of code to finish different classwork and homework, in real life you would write thousands line of code , and so it is important for you to write your code in different functions.
 
 In today tutorial, you should put all your code in the four function we give to you in `tutorial2_hw.c`, here I would provide you an example of how it works
