@@ -68,7 +68,7 @@ What's wrong with the code below?
 >        static uint32_t last_ticks_BTN = 0;
 >        last_ticks_BTN = HAL_GetTick();
 >        while (HAL_GetTick - last_ticks_BTN < 1000){
->            gpio_toggle(LED2)
+>            gpio_toggle(LED2);
 >        }
 >    }
 >}
