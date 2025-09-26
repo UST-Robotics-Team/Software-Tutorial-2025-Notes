@@ -58,7 +58,7 @@ The MCU starts counting time starting from when it receives power. Using `HAL_Ge
 ### Demo: Writing Code in a function 
 While you might only need to write tens of code to finish different classwork and homework, in real life you would write thousands line of code , and so it is important for you to write your code in different functions.
 
-In today tutorial, you should put all your code in the four function we give to you in `tutorial2_hw.c`, here I would provide you an example of how it works
+In today tutorial, you should put all your code in the four function we give to you in `gpio_classwork.c`, here I would provide you an example of how it works
 
 1. Write what you want it to do every loop:
    1. During the 1 - 2 second: `LED3` is flashing (toggle every 100 ms)
@@ -89,7 +89,7 @@ In today tutorial, you should put all your code in the four function we give to 
     }
     ```
 
-2. After you have written your program in `tutorial2_hw.c`, you would like to call it in your main loop.
+2. After you have written your program in `gpio_classwork.c`, you would like to call it in your main loop.
    - Before calling it, you need to have declared this function before the `main` function. 
    - Normally we will do by include a corrsponding `.h` of that `.c`, but as we forogr to give you this.
    - So you can directly put the function prototype (function declaration) in the top of your `main.c`
