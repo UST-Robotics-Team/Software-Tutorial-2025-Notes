@@ -199,7 +199,7 @@ Therefore, instead of blocking function, we mainly use **Non-blocking Transmit/R
 
 ### Enabling UART Interrupts
 
-Here's how to activate the interupt function. Go to `NVIC Settings`, in the `.ioc` file, enable `USART/UART X global interrupt` then click the gear button marked as `Device Configuration Tool Code Generation` right next to the `Run` button(the green circle with a white triangle inside).
+Here's how to activate the interupt function. Go to `Connectivity > USART/UART X -> NVIC Settings` in the `.ioc` file, enable `USART/UART X global interrupt` then click the gear button marked as `Device Configuration Tool Code Generation` right next to the `Run` button(the green circle with a white triangle inside).
 
 ![](./image/nvic.png)
 
