@@ -4,6 +4,10 @@
 
 > Author: Ken Law (cclawad@connect.ust.hk)
 
+## Intuition
+
+In tutorial 1, you have already learnt how to control buttons and LEDs on the mainboard, it is a kind of information exchange between you and MCU. However, what about data transfer between 2 MCU? Or even send data from the MCU to your computer for debug purpose?
+
 ## Introduction
 
 Suppose you want to send 8-bit data from one board to another. Using the simplest parallel communication method, you’d need 8 wires—one for each bit:
@@ -14,9 +18,9 @@ This quickly becomes impractical as data width increases. For example, sending 3
 
 ## What is UART?
 
-UART (Universal Asynchronous Receiver-Transmitter) is a simple and popular serial communication protocol. It allows microcontrollers like the STM32 to send and receive data using just three wires: TX (transmit), RX (receive), and GND (ground). Unlike parallel communication, UART sends data as a stream of bits, reducing hardware complexity at the cost of transmission speed. UART is widely used for debugging, data logging, and connecting wireless modules such as Bluetooth.
+UART (Universal Asynchronous Receiver-Transmitter) is a simple and popular serial communication protocol. It allows microcontrollers like the STM32 to send and receive data using just three wires: TX (transmit), RX (receive), and GND (ground). Unlike parallel communication, UART sends data as a **Stream of Bits**, reducing hardware complexity at the cost of transmission speed. UART is widely used for debugging, data logging, and connecting wireless modules such as Bluetooth.
 
-### UART Connections
+## UART Connections
 
 To communicate via UART, connect the devices as shown below:
 
@@ -24,11 +28,13 @@ To communicate via UART, connect the devices as shown below:
 
 > The GND connection ensures both devices share the same reference voltage. Without a common ground, signals may be misinterpreted, so **always** connect GND between devices.
 
-### UART Configuration
+> Sometimes you may want to connect some module that has no power source on its own to the MCU, in this case, one more `5V/3.3V` pin is needed for powering. (MCU 3.3V <-> module 3.3V)
+
+## UART Configuration
 
 ![](./image/setting.png)
 
-To configure UART on STM32, go to `Connectivity > USART/UART X` and set the mode to `Asynchronous`.
+To configure UART on STM32, open the `.ioc` file in the root directory of the project, go to `Connectivity > USART/UART X` and set the mode to `Asynchronous`.
 
 > USART stands for Universal **Synchronous**/Asynchronous Receiver-Transmitter. Synchronous mode requires an extra clock line, while asynchronous mode (used here) relies on both devices agreeing on the baud rate.
 
@@ -57,7 +63,7 @@ The baud rate defines how many bits are sent per second. Common values include:
 
 > **Always** set the same baud rate on both sides of the connection.
 
-### Initializing UART Pins
+## Initializing UART Pins
 
 Before using UART, you must initialize the relevant pins. This is usually handled in `main.c`:
 
@@ -65,11 +71,11 @@ Before using UART, you must initialize the relevant pins. This is usually handle
 MX_USART1_UART_Init();
 ```
 
-### Sending and Receiving Data
+## Sending and Receiving Data
 
 After initialization, use the STM32 HAL library function to transmit and receive data.
 
-#### Transmitting Data
+### Transmitting Data
 
 ```c
 HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
@@ -98,7 +104,7 @@ int main(void)
 }
 ```
 
-#### Receiving Data
+### Receiving Data
 
 ```c
 HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
@@ -117,7 +123,7 @@ int main(void)
     /* Initialization */
     ...
 
-    char msg[128];
+    char msg[5];
 
     while (1)
     {
@@ -126,6 +132,7 @@ int main(void)
 
         /* Echo Back */
         HAL_UART_Transmit(&huart1, (uint8_t *)msg, 5, HAL_MAX_DELAY);
+        HAL_UART_Transmit(&huart1, '\n', 1, HAL_MAX_DELAY);
     }
 }
 ```
@@ -154,7 +161,7 @@ int main(void)
 }
 ```
 
-### Using a Serial Monitor
+## Data transfer between MCU and computer
 
 You can also communicate between the STM32 mainboard and your computer using a USB-to-TTL module.
 
@@ -162,7 +169,7 @@ You can also communicate between the STM32 mainboard and your computer using a U
 
 [Serial monitor setting](./01a-serial-monitor.md)
 
-### Blocking vs. Non-Blocking Communication
+## Blocking vs. Non-Blocking Communication
 
 When calling `HAL_UART_Transmit()/HAL_UART_Receive()`, your code will pause at the function call until data is successfully transmitted/received as the MCU is continuously asking the UART hardware peripheral whether a byte is sended/received, this is called `blocking function`. This is unaccetably inefficient espesially for receiving data as most of the MCU resources are wasted for waiting data income. (FYI most main logic finish under 5ms, except for image processing)
 
@@ -190,13 +197,13 @@ int main(void)
 
 Therefore, instead of blocking function, we mainly use **Non-blocking Transmit/Recieve Function**. Instead of let the MCU keep asking whether we have completed sending/receiving data, the non-blocking function will send a interupt signal to MCU if the UART hardware have completed sending/receiving a **Fixed Length** data.
 
-#### Enabling UART Interrupts
+### Enabling UART Interrupts
 
-Here's how to activate the interupt function. Go to `NVIC Settings`, enable `USART/UART X global interrupt` then click `GENERATE CODE` on the upper right corner of the page.
+Here's how to activate the interupt function. Go to `NVIC Settings`, in the `.ioc` file, enable `USART/UART X global interrupt` then click the gear button marked as `Device Configuration Tool Code Generation` right next to the `Run` button(the green circle with a white triangle inside).
 
 ![](./image/nvic.png)
 
-#### Non-blocking Transmit function
+### Non-blocking Transmit function
 
 ```c
 HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
@@ -215,8 +222,11 @@ When it finish transmitting the data, the UART transmit interrupt will be trigge
 ```c
 #include <string.h>
 
+/* USER CODE BEGIN PV */
 int transmit_completed = 0;
+/* USER CODE END PV */
 
+/* USER CODE BEGIN PFP */
 // You need to write this function yourself, it won't be auto generated
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
@@ -226,6 +236,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
         LED_ON();
     }
 }
+/* USER CODE END PFP */
 
 int main(void)
 {
@@ -246,7 +257,7 @@ int main(void)
 }
 ```
 
-#### Non_blocking Receive function
+### Non_blocking Receive function
 
 ```c
 HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
@@ -261,8 +272,11 @@ When it finish receving the **Fixed Length** of data, the UART receive interrupt
 **RX Example:**
 
 ```c
+/* USER CODE BEGIN PV */
 char rx_buf[2];
+/* USER CODE BEGIN PV */
 
+/* USER CODE BEGIN PFP */
 // You need to write this function yourself, it won't be auto generated
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
@@ -274,6 +288,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
         HAL_UART_Receive_IT(&huart1, (uint8_t *)rx_buf, 2);
     }
 }
+/* USER CODE BEGIN PFP */
 
 int main(void)
 {
@@ -294,6 +309,30 @@ int main(void)
         HAL_Delay(1);
     }
 }
+```
+
+### Place to put your own functions and variables
+
+If you look close enough, you may saw that I have put all the `HAL_UART_TxCpltCallback()/HAL_UART_RxCpltCallback()` in something like
+
+```c
+/* USER CODE BEGIN XX */
+
+/* USER CODE END XX */
+```
+
+This is because when you hit the gear button (`Device Configuration Tool Code Generation`), the IDE will automatically delete all the stuff outside these BEGIN/END pair, even inside the `main()`.
+
+```c
+/* USER CODE BEGIN PV */
+int test1; // Will stay
+/* USER CODE END PV */
+int test2; // Will be deleted
+
+/* USER CODE BEGIN PFP */
+int func1(){} // Will stay
+/* USER CODE END PV */
+int func2(){}; // Will be deleted
 ```
 
 <!-- > For receiving **Variable length** data, please see [appendix](./01b-variable-length-uart.md). -->

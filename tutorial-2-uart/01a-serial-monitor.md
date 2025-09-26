@@ -11,7 +11,7 @@ To communicate with your STM32 board via UART, you need a serial monitor program
 ## Installation
 
 - **CoolTerm (Mac):** [https://freeware.the-meiers.org/](https://freeware.the-meiers.org/)
-- **Serial Debug Assistant (Windows, Microsoft Store):** [https://apps.microsoft.com/store/detail/serial-debug-assistant/9NBLGGH43HDM](https://apps.microsoft.com/store/detail/serial-debug-assistant/9NBLGGH43HDM)
+- **Serial Debug Assistant (Windows via Microsoft Store):** [https://apps.microsoft.com/store/detail/serial-debug-assistant/9NBLGGH43HDM](https://apps.microsoft.com/store/detail/serial-debug-assistant/9NBLGGH43HDM)
 
 ## Configuring CoolTerm
 
@@ -26,8 +26,7 @@ Serial Port -> Data Bits: 8
 Serial Port -> Parity: None
 Serial Port -> Stop Bits: 1
 
-Terminal -> Terminal Mode: Line mode
-Terminal -> Enter Key Emulation: CR/LF
+Terminal -> Terminal Mode: Raw mode
 Terminal -> Local Echo: Unchecked
 ```
 
@@ -40,5 +39,9 @@ Press **Connect** and run your board. Messages should appear in the terminal.
 - **Line mode:** You can type a full string and send it at once. This is useful for Bluetooth configuration.
 
 - **Local echo** only affects display—it shows what you type but does not change the data
+
+## Sending string in Coolterm under raw mode
+
+Go to top nevigation bar, the click `Connection -> send string`.
 
 [Back to Main](./README.md) | [Previous Page](./01-uart.md)
