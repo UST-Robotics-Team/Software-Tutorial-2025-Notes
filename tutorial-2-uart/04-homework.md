@@ -16,6 +16,7 @@ Your program should receive two commands via Bluetooth:
 
 - `s`: Start/stop/resume the stopwatch
 - `r`: Reset the stopwatch
+  - If `r` is recieved during counting, stop counting at reset the timer
 
 After receiving each command, echo the command back to the computer via Bluetooth. Update the time on the TFT monitor every millisecond.
 

@@ -10,6 +10,11 @@ What you should see in coolterm:
 
 ## Classwork #2: Repeat classwork #1 with bluetooth module
 
+You have 2 tasks to be finished
+
+- Show to our helper that you have correctly setup the HC-05
+- Replicate classwork 1
+
 ## Classwork #3: Control LEDs by sending commands from computer to MCU through bluetooth.
 
 Strings to send:
