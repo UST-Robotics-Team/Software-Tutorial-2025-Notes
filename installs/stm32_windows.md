@@ -26,7 +26,7 @@ After you have installed the IDE, please follow the steps below to properly setu
 
 ### Import the project files
 
-Download the [sw-tutorial.zip](../images/sw-tutorial.zip) we prepared for you below.
+Download the [2025-sw-tutorial-v2.zip](../images/2025-sw-tutorial-v2.zip) we prepared for you below.
 
 _Note that we may have some library changes from time to time. So always follow what the tutorial notes say._
 
@@ -36,7 +36,7 @@ _Note that we may have some library changes from time to time. So always follow 
 
 > &#x20;![](<../../../images/image (1) (1).png>)
 >
-> Open STMCubeIDE 1.10.1 and you will see the following window.
+> Open STMCubeIDE 1.19.1 and you will see the following window.
 >
 > You can choose whichever directory you like to place the project files. Just make sure you can find it afterwards.
 
@@ -65,12 +65,15 @@ _Note that we may have some library changes from time to time. So always follow 
 >
 > Choose STM32 Application the left and select _Debugger_ Tab.
 >
-> Change Debug probe to `ST-LINK (OpenOCD).` Also change the OpenOCD Command to `"${stm32cubeide_openocd_path}\openocd.exe"`(Note the different `\` and the `.exe`)
 >
-> Click `Show generator options...` under `Configuration Scripts` to reveal more options.
+> ![](/images/STLink%20GDB%20Server.png)
+> 
+> Change Debug probe to `ST-LINK (GDB Server)`. Also double check that the OpenOCD command is the same as the one in the image above.
 >
+> ![](/images/STLink%20Software%20System%20Reset.png)
+> 
 > In `Mode Setup`, select `Software system reset` in `Reset Mode`.
-
+>
 > <img src="https://i.imgur.com/Wa5m30S.png" alt="" data-size="original">
 >
 > If you see this, you should be good to go. Ask someone to give you a mainboard and a ST-LINK (the USB like thingy we use to flash code onto the board) and see if it works.

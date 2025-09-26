@@ -58,7 +58,7 @@ After you have installed the IDE, please follow the steps below to properly setu
 
 ### Import the project files
 
-Download the [sw-tutorial.zip](../images/sw-tutorial.zip) we prepared for you below.
+Download the [sw-tutorial.zip](../images/2025-sw-tutorial-v2.zip) we prepared for you below.
 
 _Note that we may have some library changes from time to time. So always follow what the tutorial notes say._
 
@@ -106,21 +106,14 @@ _Note that we may have some library changes from time to time. So always follow 
 >
 > Choose STM32 Application the left and select _Debugger_ Tab.
 >
-> <img src="https://i.imgur.com/Xk8Z7zA.png" alt="" data-size="original">
+> ![](/images/STLink%20GDB%20Server.png)
+> 
+> Change Debug probe to `ST-LINK (GDB Server)`. Also double check that the OpenOCD command is the same as the one in the image above.
 >
-> Change Debug probe to `ST-LINK (OpenOCD)`. Also double check that the OpenOCD command is the same as the one in the image above.
->
-> <img src="https://i.imgur.com/kZNp90b.png" alt="" data-size="original">
->
-> Click `Show generator options...` under `Configuration Scripts` to reveal more options.
->
-> <img src="https://i.imgur.com/jIGDNqo.png" alt="" data-size="original">
->
+> ![](/images/STLink%20Software%20System%20Reset.png)
+> 
 > In `Mode Setup`, select `Software system reset` in `Reset Mode`.
-
+>
 > ![](https://i.imgur.com/Wa5m30S.png)
 >
 > If you see this, you should be good to go. Ask someone to give you a mainboard and a ST-LINK (the USB like thingy we use to flash code onto the board) and see if it works.
-
-> <img src="https://i.imgur.com/S6SgtOg.png" alt="" data-size="original">\
-> You should get something similar to this once you connect everything and actually flash the code. The LEDs should be blinking.
