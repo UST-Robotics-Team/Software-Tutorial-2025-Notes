@@ -48,7 +48,7 @@ Before you start doing homework, You may find these defines in `lcd.h` useful:
     - This implementation will cause such that if you press the button multiple times in short succession, you will extend the duration that the LED is on for and the time your name is displayed.
 - Keywords:
   - The event of a signal going from low to high is called the _**rising edge**_ and the opposite is the _**falling edge**_
-  - The `gpio_read()` macro gives us the current state, but edge triggering also requires knowledge of the **past state** as well as some logic
+  - The `btn_read()` macro gives us the current state, but edge triggering also requires knowledge of the **past state** as well as some logic
 - Hints: How can we design some code that can call a function _only_ when the button is first clicked? (Rising edge)
 
 #### **Part 3: Misc**
