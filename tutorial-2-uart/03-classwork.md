@@ -24,5 +24,6 @@ Strings to send:
   - e.g. to turn on LED1: `+1`; to turn off LED3: `-3`.
 - Toggle LEDx: `/x`
   - LED should keep toggling **every 500 ms** until a `+x` or `-x` command is sent.
+    > Hint: use non-blocking function
 
 [Previous](./02-bluetooth.md) | [Next Page](./04-homework.md)

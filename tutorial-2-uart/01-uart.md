@@ -20,6 +20,9 @@ This quickly becomes impractical as data width increases. For example, sending 3
 
 UART (Universal Asynchronous Receiver-Transmitter) is a simple and popular serial communication protocol. It allows microcontrollers like the STM32 to send and receive data using just three wires: TX (transmit), RX (receive), and GND (ground). Unlike parallel communication, UART sends data as a **Stream of Bits**, reducing hardware complexity at the cost of transmission speed. UART is widely used for debugging, data logging, and connecting wireless modules such as Bluetooth.
 
+> How is data represented as bit stream: [ASCII](https://en.wikipedia.org/wiki/ASCII) \
+> It maybe helpful for homework task 3 :p
+
 ## UART Connections
 
 To communicate via UART, connect the devices as shown below:
@@ -28,7 +31,7 @@ To communicate via UART, connect the devices as shown below:
 
 > The GND connection ensures both devices share the same reference voltage. Without a common ground, signals may be misinterpreted, so **always** connect GND between devices.
 
-> Sometimes you may want to connect some module that has no power source on its own to the MCU, in this case, one more `5V/3.3V` pin is needed for powering. (MCU 3.3V <-> module 3.3V)
+> Sometimes you may want to connect some module that has no power source on its own to the MCU. In this case, one more `5V/3.3V` wire is needed for powering the module with the MCU. (MCU 3.3V <-> module 3.3V)
 
 ## UART Configuration
 
@@ -195,7 +198,9 @@ int main(void)
 }
 ```
 
-Therefore, instead of blocking function, we mainly use **Non-blocking Transmit/Recieve Function**. Instead of let the MCU keep asking whether we have completed sending/receiving data, the non-blocking function will send a interupt signal to MCU if the UART hardware have completed sending/receiving a **Fixed Length** data.
+Therefore, instead of blocking function, we mainly use **Non-blocking Transmit/Receive Function**. Instead of let the MCU keep asking whether we have completed sending/receiving data, the non-blocking function will send a interupt signal to MCU if the UART hardware have completed sending/receiving a **Fixed Length** data.
+
+> For receiving Variable Length message, plz check `HAL_UARTEx_ReceiveToIdle_IT()`, leave as self study material :p
 
 ### Enabling UART Interrupts
 
@@ -267,7 +272,7 @@ HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
 
 All parameter are the same as the blocking version.
 
-When it finish receving the **Fixed Length** of data, the UART receive interrupt will be triggered. Then the `HAL_UART_RxCpltCallback`(Cplt stands for complete) function is **Automatically** called, which allows you to perform any necessary post-receive actions.
+When it finish receving the **Fixed Length** of data, the UART receive interrupt will be triggered. Then the `HAL_UART_RxCpltCallback`(Cplt stands for complete) function is **Automatically** called (but you need to manuly define it), which allows you to perform any necessary post-receive actions.
 
 **RX Example:**
 
@@ -321,7 +326,7 @@ If you look close enough, you may saw that I have put all the `HAL_UART_TxCpltCa
 /* USER CODE END XX */
 ```
 
-This is because when you hit the gear button (`Device Configuration Tool Code Generation`), the IDE will automatically delete all the stuff outside these BEGIN/END pair, even inside the `main()`.
+This is because when you hit the gear button (`Device Configuration Tool Code Generation`), after generating the code required, the IDE will automatically delete all the stuff outside these BEGIN/END pair, even inside the `main()`.
 
 ```c
 /* USER CODE BEGIN PV */
@@ -334,7 +339,5 @@ int func1(){} // Will stay
 /* USER CODE END PV */
 int func2(){}; // Will be deleted
 ```
-
-<!-- > For receiving **Variable length** data, please see [appendix](./01b-variable-length-uart.md). -->
 
 [Previous](./README.md) | [Next Page](./02-bluetooth.md)
