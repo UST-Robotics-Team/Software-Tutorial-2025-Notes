@@ -118,10 +118,10 @@ In cases where the wires were swapped, you can change the defines instead of cha
 ```c
 /*main.c*/
 while(1){
-    if btn_read(BTN1){
-        led_on(LED1)
+    if (btn_read(BTN1)){
+        led_on(LED1);
     }else{
-        led_off(LED1)
+        led_off(LED1);
     }
 }
 ```
