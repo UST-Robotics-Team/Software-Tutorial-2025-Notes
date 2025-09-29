@@ -153,7 +153,7 @@ Since the intended outputs are only letters, we know that there will only be 4 o
 The generator will validate the dot/dash sequence every time a new line is inputted or when the complete input is sent for outputting.
 
 - When `BTN1` is pressed and held >1000ms and the lowest codestring is unvalidated, the display goes onto a new line (also resets the 4 dot/dash requirement). **(@1)**\
-(@1 **only if** after a short BTN2 press, following dots and dashes are applied on a new line)
+(@1 **only if** after a long BTN1 press, following dots and dashes are applied on a new line)
 
 ```
 - Validated code strings
