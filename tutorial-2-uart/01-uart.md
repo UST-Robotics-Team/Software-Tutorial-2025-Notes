@@ -135,7 +135,7 @@ int main(void)
 
         /* Echo Back */
         HAL_UART_Transmit(&huart1, (uint8_t *)msg, 5, HAL_MAX_DELAY);
-        HAL_UART_Transmit(&huart1, '\n', 1, HAL_MAX_DELAY);
+        HAL_UART_Transmit(&huart1, (uint8_t *)"\n", 1, HAL_MAX_DELAY);
     }
 }
 ```

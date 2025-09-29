@@ -16,7 +16,13 @@ The HC-05 Bluetooth module, like other Bluetooth devices, has a default device n
 
 To configure your HC-05 module, follow these steps:
 
-1. Connect the HC-05 and the USB-TTL module together (remember TX to RX and the 3.3V)
+1. Connect the HC-05 and the USB-TTL module together
+   > USB-TTL <-> HC05 \
+   >  RXD <-> TXD \
+   >  TXD <-> RXD \
+   >  GND <-> GND \
+   >  VCC <-> 3V3 \
+   >  EN <-> VCC
 2. Hold down the button on the HC-05 while plugging the USB-TTL adapter into your computer.
 3. Release the button. The HC-05 should enter "AT" mode, indicated by a slowly flashing LED.
 4. Set your serial monitor baud rate to 38400 and connect. If this doesn’t work, try 9600.
@@ -52,6 +58,7 @@ To configure your HC-05 module, follow these steps:
 2. Check and set the password.
 3. Set the module role to be `Slave` (your computer acts as Master).
 4. Set connection mode to be `Any device` (allows connection to any nearby device).
+5. Set the UART setting using `AT+UART=115200,0,0`
 
 After configuration, connect the HC-05 to the UART port of your STM32 board. Once powered, your computer should detect the device.
 
