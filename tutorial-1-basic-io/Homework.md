@@ -159,7 +159,7 @@ The generator will validate the dot/dash sequence every time a new line is input
 - Validated code strings
 . _ _ _  J
 _        T
-- Unvalidated code strings (aka no letter on the right side)
+- Un-validated code strings (aka no letter on the right side)
 . _ _ .       // even though this is the codestring for P, it has not been validated because there is no P next to the codestring.
 . _ . _       // this is just an invalid codestring.
 ```
