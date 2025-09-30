@@ -272,9 +272,9 @@ HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
 
 All parameter are the same as the blocking version.
 
-When it finish receving the **Fixed Length** of data, the UART receive interrupt will be triggered. Then the `HAL_UART_RxCpltCallback`(Cplt stands for complete) function is **Automatically** called (but you need to manuly define it), which allows you to perform any necessary post-receive actions.
+When it finish receving the **Fixed Length** of data, the UART receive interrupt will be triggered. Then the `HAL_UART_RxCpltCallback()`(Cplt stands for complete) function is **Automatically** called (but you need to manuly define it), which allows you to perform any necessary post-receive actions.
 
-**RX Example:**
+**RX Example 1:**
 
 ```c
 /* USER CODE BEGIN PV */
@@ -309,6 +309,61 @@ int main(void)
         // Code will stop at here waiting for at most 100ms
         // HAL_UART_Receive(&huart1, rx_buff, sizeof(rx_buff), 100);
 
+        // Main logic that needs to be run once per ms
+        main_logic();
+        HAL_Delay(1);
+    }
+}
+```
+
+Also, in pratice, we seldom put heavy work inside the `HAL_UART_RxCpltCallback()` function as we don't want the main logic to be interupted for so long. Therefore, the most common way to handle UART input is via **Flags**. In `HAL_UART_RxCpltCallback()`, we can do basic command processing to set the flags. After that, we let the main logic to handle those flags.
+
+**RX Example 2:**
+
+```c
+/* USER CODE BEGIN PV */
+char rx_buf[1];
+int flag1 = 0;
+int flag2 = 0;
+/* USER CODE BEGIN PV */
+
+/* USER CODE BEGIN PFP */
+// You need to write this function yourself, it won't be auto generated
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+    if (huart == &huart1) // Better check the UART handler as different UART handlers share the same callback function
+    {
+        if (rx_buf[0] == '1')
+            flag1 = 1;
+        if (rx_buf[0] == '2')
+            flag2 = 1;
+
+        // Start listening again
+        HAL_UART_Receive_IT(&huart1, (uint8_t *)rx_buf, 1);
+    }
+}
+/* USER CODE BEGIN PFP */
+
+int main(void)
+{
+    /* Initialization */
+    ...
+
+    // Activate listening in background
+    HAL_UART_Receive_IT(&huart1, (uint8_t *)rx_buf, 1);
+
+    while (1)
+    {
+        if (flag1)
+        {
+            // ...
+            flag1 = 0;
+        }
+        if (flag2)
+        {
+            // ...
+            flag2 = 0;
+        }
         // Main logic that needs to be run once per ms
         main_logic();
         HAL_Delay(1);
