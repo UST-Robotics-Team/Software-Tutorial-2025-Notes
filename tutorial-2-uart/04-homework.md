@@ -7,10 +7,11 @@
 Configure your STM32 board to continuously send the status of all buttons to your computer using the HC-05 Bluetooth module every 100ms.
 Format the data packet as follows:
 
-`[Button 1: On/Off], [Button 2: On/Off], ... \n`
+`[Button 1: On/Off], [Button 2: On/Off]\n`
 
 ## Task 2: Bluetooth-Controlled Stopwatch
 
+:123B3
 Implement a stopwatch on your STM32 board.
 Your program should receive two commands via Bluetooth:
 
