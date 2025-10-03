@@ -21,7 +21,7 @@ To configure your HC-05 module, follow these steps:
    >  RXD <-> TXD \
    >  TXD <-> RXD \
    >  GND <-> GND \
-   >  3V3 <-> 3V3 \
+   >  3V3 <-> VCC \
    >  VCC <-> EN
 2. Hold down the button on the HC-05 while plugging the USB-TTL adapter into your computer.
 3. Release the button. The HC-05 should enter "AT" mode, indicated by a slowly flashing LED.
