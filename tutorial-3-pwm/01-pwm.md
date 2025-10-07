@@ -23,6 +23,8 @@ But for our purpose, we only need 50Hz.
 So we will be using **timers** inside the board to generate a different frequency from the MCU clock.
 *Note* a total of 8 timers (`TIM1` - `TIM8`) are available, each can output different frequencies.
 
+>for TIM1 and TIM8, they have a different clock frequency since they are hardwarely mapped to a different clock (kind of) 
+
 #### TIM: PSC & ARR
 Each TIMx has some custom parameters that we could set, and we will be using
 ```c
@@ -118,60 +120,78 @@ MX_TIM8_Init();
 
 2. Set the Prescaler value, Auto Reload Register
 
+> you will need to create the following functions if you haven't
+
 ```c
-// in tutorial3_pwm.c in pwm_init()
+// in pwm_init()
 TIM1->PSC = 1234;    // set the timer1 prescaler value
 TIM1->ARR = 5678;    // set the timer1 auto reload register
 ```
 
-> Note: `TIM1` stands for Timer 1. but we are using Timer 5 Channel 1 now!!!
+> Note: `TIM1` stands for Timer 1. but we are using Timer 2 Channel 1 now!!!
 
 > Hint: Use your Classwork 2 answers
 
-3. Start the Timer (in `tutorial3_pwm.c` in `pwm_init()` )
+3. Start the Timer (use `pwm_init()` )
 
 ```c
-// in tutorial3_pwm.c in pwm_init()
+// in pwm_init()
 HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1); 
 // HAL_TIM_PWM_Start(timer, channel);
 // htim1 refers to timer 1
 // We are using timer 5 channel 1!!!
 ```
 
-> Hint:  `&htim1` means Timer 1, remember to change to Timer 5
+> Hint:  `&htim1` means Timer 1, remember to change to Timer 2
 
 4. Change the `CCR` as required for the classwork/homework
 
 ```c
+// in pwm_set_duty & pwm_set_ontime
 TIM1->CCR1 = 321; //set the compare value of timer1 channel1
 TIM1->CCR2 = 678; //set the compare value of timer1 channel2
 ```
 
 > Hint: Use your Classwork 2 answers
 
-#### Use the skeleton code `tutorial3_pwm.c` located in the`src` file!!
-
 ```c
 // add the below in main.c
 ...
-void SystemClock_Config(void);
-/* USER CODE BEGIN PFP */
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
 
-/* add the following 3 lines*/
-void pwm_init(void); //add this line!
-void pwm_classwork(void); //add this line!
-void pwm_homework(void); //add this line!
+/* add the following lines !!! */
+// >>>
+void pwm_init(void) {
+    // initialize parameters
+    // TODO: change here
+    TIMx->PSC = ?;
+    TIMx->ARR = ?;
 
-/* USER CODE END PFP */
+    // start pwm generation
+    // TODO: add here
+}
+void pwm_classwork(void) {
+    // TODO: change here
+    TIMx->CCRy = ?;
+}
+// <<<
+
+/* USER CODE END 0 */
+```
+```c
 ...
-pwm_init(); //add this line!
-
-while (1) {
-    pwm_classwork(); //add this line!
-}   
+// in main.c
+int main(void) {
+    ...
+    pwm_init(); //add this line!
+    ...
+    while (1) {
+        pwm_classwork(); //add this line!
+    }
 ...
 ```
 
-Now test your PWM with a servo motor!
+Now test your PWM with a sami motor!
 
-[Servo Motor](02-servo_motor.md#connections)
+[Sami Motor](02-sami_motor.md#pin_layout)

@@ -25,12 +25,15 @@ Calculate the CCR value for the 50Hz PWM to have 2 ms on-time
 
 ## Classwork 3
 
-Try to control servo motor to turn to -90 degrees-> 0 degrees -> 90 degrees (with a short pause at 0 degrees)
+Try to move the motor 
+- in both directions, and for each direction, 
+- 2 different speeds (1 slow, 1 fast as long as visibly different).
 
-> Note: for the servo motor we are using, the on-time at -90 degrees should be 0.5ms, and the on-time at 90 degrees should be 2.5ms. Calculate the on-time for 0 degrees on your own.
->
-> Bonus: control the angle of the motor with a button
+e.g. PWM duty cycle = 50% (0.5), dir = CW (Clockwise)
 
-> Note: We are using TIM5 and channel 1
+> Remember to use GPIO for direction
+> [GPIO Recap](tutorial-1-basic-io\02-GPIO.md)
 
-[Back to notes](02-servo_motor.md#how-to-control-a-servo-motor)
+> It is suggested to at least try this out yourself since you will be using this motor in the RDC later.
+
+[Back to notes](02-sami_motor.md)
