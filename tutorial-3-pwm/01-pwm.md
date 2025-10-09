@@ -75,7 +75,8 @@ So $duty cycle = \frac{on-time}{T} = \frac{CCR}{ARR+1}$
       (just choose 1 set of CCR and ARR values from your classwork 1)
 
 ## PWM set up in stm32
-
+> Since you need to log in to stm32 to generate code, we have already generated the code for you.
+You could skip the following part and directly set the varaibles [here](#start-coding) for now.
 ### Define the PWM features in the IDE
 
 > There are many pins on the board. You need to find out which pin your `TIMx_CHx` is connected to.
@@ -103,6 +104,47 @@ There are 4 steps in setting up the PWM output channel and the pin to use.
 
 
 ### Start Coding!!!
+
+```c
+// add the below in main.c
+...
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+/* add the following lines !!! */
+// >>>
+void pwm_init(void) {
+    // initialize parameters
+    // TODO: change here
+    TIMx->PSC = ?;
+    TIMx->ARR = ?;
+
+    // start pwm generation
+    // TODO: add here
+}
+
+void pwm_classwork(void) {
+    // TODO: change here
+    TIMx->CCRy = ?;
+}
+// <<<
+
+/* USER CODE END 0 */
+```
+```c
+...
+// in main.c
+int main(void) {
+    ...
+    HAL_TIMx_Init();
+    ...
+    pwm_init(); //add this line AFTER INIT!
+    ...
+    while (1) {
+        pwm_classwork(); //add this line!
+    }
+...
+```
 
 There are 4 steps in coding:
 
@@ -138,6 +180,7 @@ TIM1->ARR = 5678;    // set the timer1 auto reload register
 // in pwm_init()
 HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1); 
 // HAL_TIM_PWM_Start(timer, channel);
+
 // htim1 refers to timer 1
 // We are using timer 5 channel 1!!!
 ```
@@ -153,44 +196,6 @@ TIM1->CCR2 = 678; //set the compare value of timer1 channel2
 ```
 
 > Hint: Use your Classwork 2 answers
-
-```c
-// add the below in main.c
-...
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
-
-/* add the following lines !!! */
-// >>>
-void pwm_init(void) {
-    // initialize parameters
-    // TODO: change here
-    TIMx->PSC = ?;
-    TIMx->ARR = ?;
-
-    // start pwm generation
-    // TODO: add here
-}
-void pwm_classwork(void) {
-    // TODO: change here
-    TIMx->CCRy = ?;
-}
-// <<<
-
-/* USER CODE END 0 */
-```
-```c
-...
-// in main.c
-int main(void) {
-    ...
-    pwm_init(); //add this line!
-    ...
-    while (1) {
-        pwm_classwork(); //add this line!
-    }
-...
-```
 
 Now test your PWM with a sami motor!
 

@@ -35,6 +35,8 @@ e.g. PWM duty cycle = 50% (0.5), dir = CW (Clockwise)
 > Remember to use GPIO for direction
 \> [GPIO Recap](tutorial-1-basic-io\02-GPIO.md)
 
+> If you cannot generate code, you may use the LEDx pins as a GPIO for direction
+
 > It is suggested to at least try this out yourself since you will be using this motor in the RDC later.
 
 ## Optional
