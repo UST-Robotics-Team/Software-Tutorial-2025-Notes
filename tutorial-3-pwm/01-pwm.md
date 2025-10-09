@@ -71,12 +71,14 @@ How does it work? A HIGH signal is output if the `CCR` value is greater than val
 So $duty cycle = \frac{on-time}{T} = \frac{CCR}{ARR+1}$
 
 **ClassWork 2**
-- [ ] find the `CCR` value for your 50Hz PWM to have 1ms on-time\
+- [ ] find the `CCR` value for your 50Hz PWM to have 2ms on-time\
       (just choose 1 set of CCR and ARR values from your classwork 1)
 
 ## PWM set up in stm32
 > Since you need to log in to stm32 to generate code, we have already generated the code for you.
 You could skip the following part and directly set the varaibles [here](#start-coding) for now.
+
+> If you really want to generate your own code [follow here](../installs/myST_login.md)
 ### Define the PWM features in the IDE
 
 > There are many pins on the board. You need to find out which pin your `TIMx_CHx` is connected to.
@@ -105,6 +107,10 @@ There are 4 steps in setting up the PWM output channel and the pin to use.
 
 ### Start Coding!!!
 
+> You could add the first following section of code into a new file, but if you do so, be sure to add 
+`extern TIM_HandleType htim5;`
+ into your file. (change the 5 according to which timer you are using)
+
 ```c
 // add the below in main.c
 ...
@@ -112,7 +118,7 @@ There are 4 steps in setting up the PWM output channel and the pin to use.
 /* USER CODE BEGIN 0 */
 
 /* add the following lines !!! */
-// >>>
+// START HERE >>>
 void pwm_init(void) {
     // initialize parameters
     // TODO: change here
@@ -127,7 +133,7 @@ void pwm_classwork(void) {
     // TODO: change here
     TIMx->CCRy = ?;
 }
-// <<<
+// <<< END HERE
 
 /* USER CODE END 0 */
 ```
@@ -163,6 +169,7 @@ MX_TIM8_Init();
 2. Set the Prescaler value, Auto Reload Register
 
 > you will need to create the following functions if you haven't
+(or add them at appropriate places if you know what you're doing)
 
 ```c
 // in pwm_init()
@@ -185,7 +192,7 @@ HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
 // We are using timer 5 channel 1!!!
 ```
 
-> Hint:  `&htim1` means Timer 1, remember to change to Timer 2
+> Hint:  `&htim1` means Timer 1, remember to change to Timer 5
 
 4. Change the `CCR` as required for the classwork/homework
 
