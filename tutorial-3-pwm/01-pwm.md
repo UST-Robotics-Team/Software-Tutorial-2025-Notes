@@ -170,7 +170,7 @@ TIM1->PSC = 1234;    // set the timer1 prescaler value
 TIM1->ARR = 5678;    // set the timer1 auto reload register
 ```
 
-> Note: `TIM1` stands for Timer 1. but we are using Timer 2 Channel 1 now!!!
+> Note: `TIM1` stands for Timer 1. but we are using Timer 5 Channel 1 now!!!
 
 > Hint: Use your Classwork 2 answers
 
