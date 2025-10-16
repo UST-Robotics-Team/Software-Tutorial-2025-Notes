@@ -10,8 +10,8 @@ Content: CAN, RM-motor & PID control
 
 |Session|1|2|
 |---|---|---|
-|Time|23 Oct(Wed) 19:00~22:00|24 Oct(Thur) 19:00~22:00|
-|Venue|Room 2405(Lift 17/18)|Room 5619(Lift 31/32)|
+|Time|24 Oct(Fri) 19:00~22:00|25 Oct(Sat) 15:00~18:00|
+|Venue|Room 4582(Lift 27/28)|Room 6580(Lift 27/28)|
 
 ### Advanced Tutorial 2 targets
 
