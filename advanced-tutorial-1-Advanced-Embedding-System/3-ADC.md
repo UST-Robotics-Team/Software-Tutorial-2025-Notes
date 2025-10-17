@@ -1,4 +1,5 @@
 # Analog to Digital Converter (ADC)
+[Back to home](./readme.md)
 > As mentioned on the previous page, there is a mode called Analog Mode, which is used to read analog signals. But how do we read analog signals? The answer is: ADC.
 
 ## Analog Signal vs Digital Signal

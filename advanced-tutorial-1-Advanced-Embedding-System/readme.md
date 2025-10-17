@@ -25,11 +25,11 @@ Go to `Help-> STM32CubeUpdate -> Connection to my ST`, login your account there,
 ## Agenda
 
 1. [Advanced GPIO](./1-Advanced_GPIO.md)
-2. [Interrupts and DMA](./2-Interrupts_and_DMA.md)
+2. [Interrupts and DMA](./2-Interrupt_DMA.md)
    * Demo: Button with Interrupt
-3. [Analog to Digital Converter (ADC)](./3-Analog_to_Digital_Converter.md)
+3. [Analog to Digital Converter (ADC)](./3-ADC.md)
    * Exercise: Read Line Following Sensor with ADC DMA
-4. [Advanced Timer (Input Capture)](./4-Advanced_Timer_Input_Capture.md)
+4. [Advanced Timer (Input Capture)](./4-Advanced_Timer.md)
    * Frequency Measurement
    * Ultrasonic Sensor
 5. [I2C](./5-I2C.md)

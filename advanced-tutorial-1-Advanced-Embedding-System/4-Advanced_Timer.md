@@ -1,5 +1,5 @@
 # Advanced Timer (Input capture)
-<!--  -->
+[Back to home](./readme.md)
 > During pervious tutorial we taught you guys how to generate a pwm signal given frequency and on-time. Can we do the reverse? (Spoiler: yes)
 
 ## Different modes for timer
