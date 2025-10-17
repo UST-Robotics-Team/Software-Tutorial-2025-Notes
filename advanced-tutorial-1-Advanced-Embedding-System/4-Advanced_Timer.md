@@ -38,6 +38,22 @@ $1000000x*\frac{Prescaler\space Value+1}{MCU\space Clock\space frequency}$
 
 You can also find the frequency using similar logic.
 
+## Ultrasonic Sensor Application
+
+You may take a look to the [Datasheet of HC-SR04 Ultrasonic Sensor](./image/HCSR04.pdf).
+
+![](./image/HCSR04_pic.png)
+
+There is two main pins you need to care about, "Trig" and "Echo".
+- Trig: Trigger input. A high pulse of at least 10µs is required to initiate the measurement.
+- Echo: Echo output. The duration of the high pulse on this pin corresponds to the time taken for the ultrasonic signal to travel to the object and back.
+
+Your TODOs:
+1. Set up the Trig pin as GPIO output, and Echo pin as Timer Input Capture
+2. Generate a high pulse of at least 10µs on Trig pin to start (How you can do so?)
+3. Use Input Capture to measure the duration of the high pulse on Echo pin
+4. Calculate the distance using formula
+
 ## Configuration
 
 There are a few things that you need to configure.

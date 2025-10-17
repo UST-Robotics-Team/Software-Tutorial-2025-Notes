@@ -169,7 +169,10 @@ Going back to "Parameter Settings" tab, you should see the
 
 After the configuration, CubeMX will generate the code for us. -->
 
+### Further Study: UART with DMA
 
+You can also try to use DMA with UART by yourself. The configuration is similar to ADC with DMA. You need to go to UART configuration, switch to "DMA Settings" tab, and then add a DMA channel for RX and TX respectively.
 
-## Further Study
-<!-- Lead them to think about UARTEX without thinking about call the UARTEx-->
+But however you may still have one question in your brain, how should I handle the message which does not have a fixed length? For example, if you are receiving a string from UART, how do you know when the string ends?
+
+Hints: IDLE line detection interrupt. You can search online for more information about it. :)
