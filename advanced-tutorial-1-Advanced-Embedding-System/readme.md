@@ -1,7 +1,9 @@
 # Advanced Tutorial 1: Advanced Embedding System
 
-> Speedrunning all the embedded systems knowledge you need to know
+> Speedrunning all the embedded systems knowledge you need to know \
 > and maybe the knowledge you don't need to know
+
+> Author: Ivan Lok, Conan Cheung, Bosco Cheung
 
 |Date| Time |Venue|
 |----|------|-----|
