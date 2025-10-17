@@ -37,10 +37,11 @@ If you encounter any problems during installation or usage of the IDE, please ch
 
 ### Advanced Tutorials
 * [Advanced Tutorial 1: Advanced Embedded Systems](advanced-tutorial-1-Advanced-Embedding-System/readme.md)
-* [Advanced Tutorial 2: CAN and PID Control](advanced-tutorial-2-CAN/readme.md)
-* 
+* [Advanced Tutorial 2: CAN and PID Control](advanced-tutorial-2-can/README.md)
+* [Advanced Tutorial 3: MIT_App_Inventor](advanced-tutorial-3-MIT_App_Inventor/Basic-app-creation.md). 
+
 [Lists of Links](SUMMARY.md)
 
-Advanced tutorials will be held later in the next phase and their dates are still TBD. There are also advanced notes for your own reading. Feel free to reach out to any team members if you have any questions about anything related to the tutorials or the team in general.
+Advanced tutorials will be held later in the next phase. There are also advanced notes for your own reading. Feel free to reach out to any team members if you have any questions about anything related to the tutorials or the team in general.
 
 Please also make sure to join our [Discord](https://discord.gg/C9n55M88c7) server for more important announcements.
