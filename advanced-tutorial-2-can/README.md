@@ -21,7 +21,7 @@ Content: CAN, RM-motor & PID control
 
 ## Advanced Tutorial 2 Links
 
-1. [Control Theory](1-Control-theory.md) (**TODO**)
+1. [Control Theory](1-Control-theory.md)
 2. [PID Control](2-PID.md) (**TODO**)
 3. [CAN network](3-CAN-bus.md)
 4. [RM-motor introduction](4-RM-motor.md)
