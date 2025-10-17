@@ -6,7 +6,7 @@
 #include "vl53l1_types.h"
 
 /**
- * @brief  Initialize the VL53L1 ToF sensor.
+ * @brief  Specific initialization pipeline for multiple VL53L1 ToF sensors.
  * @param  dev Pointer to the VL53L1 device structure.
  * @param  i2c_addr I2C address of the VL53L1 sensor. There is serveral notes for the possible addresses:
  * @attention @param i2c_addr must be higher than 0x52 or the code cannot detect and find out the sensor.
@@ -69,11 +69,17 @@ int tof_vl53l1_init(tof_vl53l1_dev_t *dev, uint16_t i2c_addr, uint8_t mode, uint
 }
 
 
+/* TODO: Complete this two functions */
+
 /**
  * @brief  Regular sample from the VL53L1 ToF sensor.
  * @param  dev Pointer to the VL53L1 device structure.
  * @retval Status of the operation (0 for success, non-zero for error).
  */
 uint8_t tof_regular_sample(tof_vl53l1_dev_t *dev) {
+    return 0;
+}
 
+uint8_t tof_calibrate(tof_vl53l1_dev_t *dev) {
+    return 0;
 }

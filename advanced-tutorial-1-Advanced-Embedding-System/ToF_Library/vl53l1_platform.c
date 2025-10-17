@@ -10,6 +10,13 @@
   ******************************************************************************
   */
 
+/**
+ * @file   vl53l1_platform.c
+ * @brief  This file does not completed originally, it is something you need to write by yourself to
+ *         provide the I2C read/write and delay functions for VL53L1 ToF sensor.
+ *         But we are so good, we does not require you to write it from scratch.
+ */
+
 #include "vl53l1_platform.h"
 #include "vl53l1_types.h"
 #include "vl53l1_error_codes.h"
@@ -34,6 +41,7 @@
 #define I2C_TIME_OUT_BASE   10
 #define I2C_TIME_OUT_BYTE   1
 
+// This is a very big hidden trap here~
 #define vl53l1_hi2c (&hi2c1)
 
 uint8_t _I2CBuffer[256];
