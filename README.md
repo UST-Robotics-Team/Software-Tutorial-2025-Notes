@@ -35,6 +35,10 @@ If you encounter any problems during installation or usage of the IDE, please ch
 * [Tutorial 2: UART](tutorial-2-uart/README.md)
 * [Tutorial 3: PWM & Servo Control](tutorial-3-pwm/README.md)
 
+### Advanced Tutorials
+* [Advanced Tutorial 1: Advanced Embedded Systems](advanced-tutorial-1-Advanced-Embedding-System/readme.md)
+* [Advanced Tutorial 2: CAN and PID Control](advanced-tutorial-2-CAN/readme.md)
+* 
 [Lists of Links](SUMMARY.md)
 
 Advanced tutorials will be held later in the next phase and their dates are still TBD. There are also advanced notes for your own reading. Feel free to reach out to any team members if you have any questions about anything related to the tutorials or the team in general.
