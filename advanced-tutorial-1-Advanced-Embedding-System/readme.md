@@ -24,7 +24,7 @@ Go to `Help-> STM32CubeUpdate -> Connection to my ST`, login your account there,
 
 ## Agenda
 
-0. [How you can read Schematic and PCB?]
+0. [How you can read Schematic and PCB?](./0-Schematic-PCB.md)
 1. [Advanced GPIO](./1-Advanced_GPIO.md)
 2. [Interrupts and DMA](./2-Interrupt_DMA.md)
    * Demo: Button with Interrupt
