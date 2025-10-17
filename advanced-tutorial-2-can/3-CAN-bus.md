@@ -22,7 +22,7 @@ Starfall
     3.2. [data-format](3-CAN-bus.md#data-format)  
 
 ### Introduction
-Before this tutorial, you've learnt two types of <ins>conversation protocol</ins>:
+Before this tutorial, you've learnt three types of <ins>conversation protocol</ins>:
 
 1. **PWM** (Pulse Width Modulation)
 
@@ -36,6 +36,11 @@ Before this tutorial, you've learnt two types of <ins>conversation protocol</ins
 
     * Pros: Simple code, cheap and easy-development.
     * Cons: Only 1-to-1 connection, inaccurate and limited protection.
+3. **I2C** (Inter-integrated Circuit)
+
+    Rely on `Master-Slave` relations, only master can host and read/write to the device.
+    * Pros: Multiple device support, only requires two lines.
+    * Cons: Requires external pull up resistor, High error rate (when the speed is fast), read configuration is required
 
 ## What is CAN?
 * CAN, or Controller area network, is an **electronic communication** bus defined by the `ISO 11898` standards. Those standards define how communication happens, how wiring is configured and how messages are constructed, among other things. Collectively, this system is referred to as a CAN bus.
