@@ -72,7 +72,46 @@ Lastly, enable timer interrupt.
  
 ## Code
 
-Just like other interrupt, you need to write a callback function and you need to enable it.
+```
+// main.c
+uint8_t prev_state = 0;
+uint32_t first_capture = 0;
+uint32_t second_capture = 0;
+
+uint8_t prev_but_state = 0;
+uint8_t cur_but_state = 0;
+
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
+{
+  if(htim == &htim1){
+     if(!prev_state){ // if previously is low, then this is a rising edge
+        first_capture = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
+        prev_state = 1;
+      }else{ // else it is a falling edge
+        second_capture = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
+        prev_state = 0;
+      }
+  }
+}
+
+int main(){
+  ...
+  HAL_TIM_IC_START_IT(&htim1, TIM_CHANNEL_1);
+  ...
+  while(1){
+    cur_but_state = btn_read(BTN1);
+    if(prev_but_state != cur_but_state && cur_but_state){
+       gpio_set(TOG);
+       HAL_Delay(1);
+       gpio_reset(TOG);
+     }
+     tft_prints(0, 0, "%d", first_capture);
+     tft_prints(0, 1, "%d", second_capture);
+     tft_update(1);
+    prev_but_state = cur_but_state; 
+  }
+}
+```
 
 ```
 //main.c
