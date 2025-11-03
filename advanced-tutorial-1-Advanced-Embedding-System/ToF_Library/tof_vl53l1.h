@@ -25,7 +25,7 @@ typedef struct tof_vl53l1_dev{
 int tof_vl53l1_init(tof_vl53l1_dev_t *dev, uint16_t i2c_addr, uint8_t mode, uint8_t timing_budget, uint8_t inter_measurement_time, GPIO_TypeDef *gpio_port, uint16_t gpio_pin);
 
 /*TODO: Complete this two functions*/
-uint8_t tof_regular_sample(tof_vl53l1_dev_t *dev);
-uint8_t tof_calibrate(tof_vl53l1_dev_t *dev);
+int tof_regular_sample(tof_vl53l1_dev_t *dev);
+int tof_calibrate(tof_vl53l1_dev_t *dev);
 
 #endif /* __TOF_VL53L1_H__ */

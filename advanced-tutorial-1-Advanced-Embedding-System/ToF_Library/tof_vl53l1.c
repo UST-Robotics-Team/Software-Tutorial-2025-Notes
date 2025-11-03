@@ -76,10 +76,10 @@ int tof_vl53l1_init(tof_vl53l1_dev_t *dev, uint16_t i2c_addr, uint8_t mode, uint
  * @param  dev Pointer to the VL53L1 device structure.
  * @retval Status of the operation (0 for success, non-zero for error).
  */
-uint8_t tof_regular_sample(tof_vl53l1_dev_t *dev) {
+int tof_regular_sample(tof_vl53l1_dev_t *dev) {
     return 0;
 }
 
-uint8_t tof_calibrate(tof_vl53l1_dev_t *dev) {
+int tof_calibrate(tof_vl53l1_dev_t *dev) {
     return 0;
 }
